@@ -1,0 +1,62 @@
+http://jentblue.xtgem.com/bg_new_content_spring.png - The Original Quote Image BG
+
+OTHERS:
+__________
+Ask if forum can be hosted on Netlify. ❌
+
+Create a comment section/page for discussion and contribution. 
+
+Adjust the margins for tab2 (Courses) ✅
+
+
+
+
+FEATURES:
+____________
+Image Pop Up When Touched/Clicked. ✅
+Image Pop Up with Enter & Close Button. ✅
+Still not done with the upgrade (Claude). ✅
+Partners & Sponsors, Trending Brands, Our Services. ✅
+
+
+
+
+FIXES:
+_____________
+The search box on Explore tab is lacking style. After removing the unuseed classes. ✅
+
+Pages not linking with internal pages from the popedup images in home tab. ✅
+
+Fix the swipe navigation of the pages over the footer tabs. Because the "forum-content" tab content "stories _story scroll-container" is affected by it. I can't scroll the story scroll content with the pages switching tabs. ✅
+
+Email and WhatsApp Function Not Working: Not Receiving After Submitting, and WhatsApp Button Does Not Even Take Me To The Success.html page, nor sending the filled form. ✅
+
+If possible, make filled in information in the form be sent directly to google sheet or google form. Also, whatsapp option (the inputed information should be sent to whatsapp). ✅
+
+When the Send To Mail & Send To WhatsApp button in the form "connect" section is clicked, the measage info is sent to my Google sheet, which is a good thing. But, not to my WhatsApp. ✅
+
+Option 1:
+  So, i want you to change the "Send To Email" button to "Send To Admin" and this will work for the Google Sheet. 
+ The second button "Send To WhatsApp" will redirect the user to their whatsapp inbox with the content of their message they pre-filled.✅
+
+The user should be automatically redirected to a success.html page after clicking the "Send To Admin" button✅
+
+We can add a third button as "Send To Email", as the send to mail button is not working..
+If filled-in text can be sent to email with the body of messages too, it will be good.
+After user click the submit button for "Send To Email" -- The user should be taken to our email box with the body of text.✅
+
+If this is too complex to do.
+ We can do option 2:
+Which is maintaining the "Send To Admin" function with just one button.❌
+
+And two addtional buttons without a pre-typed text/info. Just "Email Us" button that will take user to the email with out email already prefilled, and "Chat On WhatsApp" button that will take user to our chat inbox.❌
+
+ (Test With Uploaded File To Git and Netlify) **
+
+Before replacing the old JS with the new JS. Extract the code for WhatsApp and Email to compare.
+
+Ask For New Feature: Linking Contact Box Messages To Google Sheet, or Google Form.✅
+
+Theme modification for light and dark theme ✅
+
+Get the full pictures if some of the templates and resize it to 400x200 to be used as diaplay for Explore Tab (Porfolios).

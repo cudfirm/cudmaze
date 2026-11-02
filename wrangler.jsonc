@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nseyin",
+  "main": "worker.js",
+  "compatibility_date": "2026-05-25",
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "compatibility_flags": ["nodejs_compat"],
+  // Create the database once:  npx wrangler d1 create cudmaze-db
+  // then paste the printed database_id below and run:
+  //   npx wrangler d1 execute cudmaze-db --remote --file=schema.sql
+  "d1_databases": [
+    { "binding": "DB", "database_name": "cudmaze-db", "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID" }
+  ]
+}

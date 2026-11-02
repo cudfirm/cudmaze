@@ -1,0 +1,143 @@
+/* login.css */
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --background: linear-gradient(145deg,rgba(145,145,145,0.5)15%,rgba(255,255,255,0.3)70%,rgba(223,223,223,0.4)15% );
+    --card-background: #ffffff;
+    --text-color: #212529;
+    --light-text-color: #6c757d;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* --- Header --- */
+#topper {
+    background: linear-gradient(145deg,rgba(145,145,145,0.5)15%,rgba(255,255,255,0.3)70%,rgba(223,223,223,0.4)15% );
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.23), -2px 3px 3px rgba(0,0,0,0.16);
+}
+
+.ttext-link {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.ttext-link:hover {
+    color: #0a58ca;
+}
+
+/* Updated #rightt styling for navbar */
+#rightt {
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+/* --- Main Content --- */
+.main-content-row {
+    min-height: 85vh;
+}
+
+.h-title {
+    color: var(--text-color);
+    font-size: 1.5rem; /* Adjust font size for mobile */
+}
+
+.txt-image-container {
+    max-width: 450px;
+}
+
+.login-action-area {
+    max-width: 400px;
+    margin: auto;
+}
+
+.login-area-info {
+    font-size: 0.9rem; /* Smaller font size for the info text on mobile */
+}
+
+/* --- Modal-like Login Form --- */
+.login-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.login-backdrop.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.login-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    z-index: 1050;
+    width: 90%;
+    max-width: 450px;
+    background-color: var(--card-background);
+    border: none;
+    border-radius: 0.75rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.login-modal.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* --- Form Elements --- */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+#a a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#a a:hover {
+    text-decoration: underline;
+}
+
+/* --- Buttons --- */
+#see.btn-primary {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(145deg,rgba(4, 94, 81, 0.69)15%,rgba(29, 29, 30, 0.59)70%,rgba(7, 34, 101, 0.75)15% );
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.23), -2px 3px 3px rgba(0,0,0,0.16);
+    border: none;
+}
+
+#submit.btn-success {
+    font-weight: 600;
+}
+
+/* Responsive adjustments for larger screens */
+@media (min-width: 768px) {
+    .h-title {
+        font-size: 2.5rem; /* Revert to larger font size on desktop */
+    }
+    .login-area-info {
+        font-size: 1.25rem; /* Revert to larger font size on desktop */
+    }
+}

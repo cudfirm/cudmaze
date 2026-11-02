@@ -1,0 +1,10 @@
+worker.js
+schema.sql
+wrangler.jsonc
+audit.txt
+node_modules
+package.json
+package-lock.json
+.vscode
+.wrangler
+DEPLOY.md

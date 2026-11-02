@@ -1,0 +1,2360 @@
+<!DOCTYPE html>
+
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CUDMAZE | Lagos Online Marketplace for Products &amp; Services</title>
+    <meta name="description" content="Shop phones, fashion, foodstuff, solar, home goods and everyday services from verified Lagos sellers. Order on WhatsApp – no account needed." />
+
+<!-- External Stylesheets -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+<!-- Local Stylesheet -->
+
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+<!-- Google Fonts -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" />
+
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#0078ff" />
+
+  </head>
+
+
+  <body>
+  <!-- ===== READING PROGRESS BAR ===== -->
+
+  <div id="readingProgressBar"></div>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+
+  <div id="toastNotification" class="toast-notification" role="alert" aria-live="polite">
+    <span id="toastMessage"></span>
+  </div>
+
+
+<div class="app-container text-capitalize sidebar-hidden">
+
+
+  <!-- ===== SIDEBAR LEFT ===== -->
+
+  <div class="sidebar-left">
+    <div class="sidebar-header custom-sidebar-gradient">CUDMAZE</div>
+
+
+<!-- Sidebar Tab Filter Search -->
+<div class="sidebar-tab-filter">
+  <input type="text" id="sidebarTabSearch" placeholder="Filter pages..." autocomplete="off" />
+</div>
+
+<div class="sidebar-tabs">
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab1')" data-tab-name="home">Home</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab2')" data-tab-name="categories">Categories</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab3')" data-tab-name="shop">Shop</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab4')" data-tab-name="sellers">Sellers</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab5')" data-tab-name="market days">Market Days</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab6')" data-tab-name="how it works">How It Works</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab7')" data-tab-name="delivery">Delivery</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab8')" data-tab-name="sell with us">Sell With Us</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab9')" data-tab-name="top sellers">Top Sellers</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab10')" data-tab-name="reviews">Reviews</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab11')" data-tab-name="lagos markets">Lagos Markets</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab12')" data-tab-name="hot">Hot <span class="tab-badge badge-hot">🔥</span></button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab13')" data-tab-name="new arrivals">New Arrivals</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab14')" data-tab-name="deals">Deals <span class="tab-badge badge-new">NEW</span></button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab15')" data-tab-name="updates">Updates</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab16')" data-tab-name="request an item">Request an Item</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab17')" data-tab-name="payments">Payments</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab18')" data-tab-name="returns">Returns</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab19')" data-tab-name="faqs">FAQs</button>
+  <button class="tab-button whitenho" onclick="openTab(event, 'tab20')" data-tab-name="about us">About Us</button>
+</div>
+<div class="sidebar-footer custom-sidebar-gradient">© 2025</div>
+
+
+  </div>
+
+  <!-- ===== CONTENT AREA ===== -->
+
+  <div class="content-area">
+
+<!-- Header -->
+
+<div class="content-header top-0 shadow-lg custom-header-gradient custom-z-40">
+
+  <!-- Breadcrumb trail -->
+
+  <div id="breadcrumbTrail" class="breadcrumb-trail"></div>
+
+  <div id="searchContainer" class="search-container">
+    <svg id="searchIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input type="text" id="searchInput" placeholder="Search Whole Site..." />
+    <button id="clearSearchBtn" class="clear-search-btn" aria-label="Clear search">&times;</button>
+  </div>
+
+  <!-- Dark Mode Toggle -->
+
+  <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <i class="bi bi-moon-fill" id="darkModeIcon"></i>
+  </button>
+
+  <button type="button" id="cartBtn" class="dark-mode-toggle hdr-btn" aria-label="Open cart" title="My cart">
+    <i class="bi bi-bag" aria-hidden="true"></i><span id="cartCount" class="hdr-badge" hidden>0</span>
+  </button>
+  <button type="button" id="accountBtn" class="dark-mode-toggle hdr-btn" aria-label="Sign in or create an account" title="Account">
+    <i class="bi bi-person" id="accountIcon" aria-hidden="true"></i>
+  </button>
+
+  <div class="dropdown mobile-widgets">
+    <button class="btn btn-sm btn-outline-light text-bg-dark dropdown-toggle dropdown-toggle-center" type="button" data-bs-toggle="dropdown">MENU</button>
+    <ul class="dropdown-menu dropdown-menu-end">
+      <li><button class="dropdown-item btn btn-sm" onclick="openTab(event, 'tab14')">Deals</button></li>
+      <li><button class="dropdown-item btn btn-sm" onclick="openTab(event, 'tab8')">Sell With Us</button></li>
+      <li><button class="dropdown-item btn btn-sm" onclick="openTab(event, 'connect-content')">Contact Us</button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Main Content -->
+
+<main class="content-main">
+
+  <!-- TAB 1: Home -->
+
+  <section id="tab1" class="tab-content view">
+    <h6 class="sticky-top">
+      <span class="text-bg-primary btn-sm badge" type="button">CUDMAZE &middot; Lagos Marketplace</span>
+    </h6>
+
+    <hr class="my-2 w-25" />
+    <div class="content">
+
+
+  <div class="card card-section mb-2">
+    <div class="card-header d-flex justify-content-between align-items-center fw-bold">
+      <h3>Shop by Category</h3>
+      <button type="button" class="btn btn-sm btn-success see-all" data-filter="">View All</button>
+    </div>
+    <hr class="mt-2 mb-3" />
+    <div class="card-content row icon-grid row-cols-3 row-cols-sm-5 row-cols-md-6 row-cols-lg-8 row-cols-xl-11 quote0">
+      <div class="grid-item" data-filter="Phones &amp; Accessories" role="button" tabindex="0">
+        <img src="img/categories/phones.webp" alt="Phones" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Phones</span>
+      </div>
+      <div class="grid-item" data-filter="Fashion &amp; Fabrics" role="button" tabindex="0">
+        <img src="img/categories/fashion.webp" alt="Fashion" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Fashion</span>
+      </div>
+      <div class="grid-item" data-filter="Foodstuff &amp; Groceries" role="button" tabindex="0">
+        <img src="img/categories/food.webp" alt="Food" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Food</span>
+      </div>
+      <div class="grid-item" data-filter="Beauty &amp; Hair" role="button" tabindex="0">
+        <img src="img/categories/beauty.webp" alt="Beauty" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Beauty</span>
+      </div>
+      <div class="grid-item" data-filter="Home &amp; Kitchen" role="button" tabindex="0">
+        <img src="img/categories/home.webp" alt="Home" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Home</span>
+      </div>
+      <div class="grid-item" data-filter="Electronics &amp; Gadgets" role="button" tabindex="0">
+        <img src="img/categories/electronics.webp" alt="Gadgets" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Gadgets</span>
+      </div>
+      <div class="grid-item" data-filter="Solar &amp; Power" role="button" tabindex="0">
+        <img src="img/categories/solar.webp" alt="Solar" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Solar</span>
+      </div>
+      <div class="grid-item" data-filter="Health &amp; Pharmacy" role="button" tabindex="0">
+        <img src="img/categories/health.webp" alt="Health" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Health</span>
+      </div>
+      <div class="grid-item" data-filter="Baby &amp; Kids" role="button" tabindex="0">
+        <img src="img/categories/baby.webp" alt="Baby &amp; Kids" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Baby &amp; Kids</span>
+      </div>
+      <div class="grid-item" data-filter="Auto Parts &amp; Care" role="button" tabindex="0">
+        <img src="img/categories/auto.webp" alt="Auto" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Auto</span>
+      </div>
+      <div class="grid-item" data-filter="Building &amp; Hardware" role="button" tabindex="0">
+        <img src="img/categories/hardware.webp" alt="Hardware" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Hardware</span>
+      </div>
+      <div class="grid-item" data-filter="Services" role="button" tabindex="0">
+        <img src="img/categories/services.webp" alt="Services" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Services</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-section mb-2">
+    <div class="card-header d-flex justify-content-between align-items-center fw-bold">
+      <h3>Trending Stores</h3>
+      <button type="button" class="btn btn-sm btn-primary see-all" data-filter="">View All</button>
+    </div>
+    <hr class="mt-2 mb-3" />
+    <div class="card-content row icon-grid row-cols-3 row-cols-sm-5 row-cols-md-6 row-cols-lg-8 row-cols-xl-11 quote0">
+      <div class="grid-item" data-filter="Ikeja Gadget Hub" role="button" tabindex="0">
+        <img src="img/stores/ikeja-gadget-hub.webp" alt="Ikeja Gadget" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Ikeja Gadget</span>
+      </div>
+      <div class="grid-item" data-filter="Balogun Fabric House" role="button" tabindex="0">
+        <img src="img/stores/balogun-fabric-house.webp" alt="Balogun Fabric" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Balogun Fabric</span>
+      </div>
+      <div class="grid-item" data-filter="Mile 12 Fresh Basket" role="button" tabindex="0">
+        <img src="img/stores/mile12-fresh-basket.webp" alt="Mile 12" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Mile 12</span>
+      </div>
+      <div class="grid-item" data-filter="Oyingbo Grains &amp; Oils" role="button" tabindex="0">
+        <img src="img/stores/oyingbo-grains-and-oils.webp" alt="Oyingbo Grains" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Oyingbo Grains</span>
+      </div>
+      <div class="grid-item" data-filter="Surulere Solar Depot" role="button" tabindex="0">
+        <img src="img/stores/surulere-solar-depot.webp" alt="Surulere Solar" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Surulere Solar</span>
+      </div>
+      <div class="grid-item" data-filter="Lekki Glow Beauty" role="button" tabindex="0">
+        <img src="img/stores/lekki-glow-beauty.webp" alt="Lekki Glow" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Lekki Glow</span>
+      </div>
+      <div class="grid-item" data-filter="Yaba Home Essentials" role="button" tabindex="0">
+        <img src="img/stores/yaba-home-essentials.webp" alt="Yaba Home" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Yaba Home</span>
+      </div>
+      <div class="grid-item" data-filter="Alaba Direct Electronics" role="button" tabindex="0">
+        <img src="img/stores/alaba-direct-electronics.webp" alt="Alaba Direct" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Alaba Direct</span>
+      </div>
+      <div class="grid-item" data-filter="Ikota Kids &amp; Baby" role="button" tabindex="0">
+        <img src="img/stores/ikota-kids-and-baby.webp" alt="Ikota Kids" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Ikota Kids</span>
+      </div>
+      <div class="grid-item" data-filter="Ladipo Auto Spares" role="button" tabindex="0">
+        <img src="img/stores/ladipo-auto-spares.webp" alt="Ladipo Auto" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Ladipo Auto</span>
+      </div>
+      <div class="grid-item" data-filter="Maryland Care Pharmacy" role="button" tabindex="0">
+        <img src="img/stores/maryland-care-pharmacy.webp" alt="Maryland Care" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Maryland Care</span>
+      </div>
+      <div class="grid-item" data-filter="CUDMAZE Express" role="button" tabindex="0">
+        <img src="img/stores/cudmaze-express.webp" alt="CUDMAZE Express" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">CUDMAZE Express</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-section mb-2">
+    <div class="card-header d-flex justify-content-between align-items-center fw-bold">
+      <h3>Services Near You</h3>
+      <button type="button" class="btn btn-sm btn-warning see-all" data-filter="">View All</button>
+    </div>
+    <hr class="mt-2 mb-3" />
+    <div class="card-content row icon-grid row-cols-3 row-cols-sm-5 row-cols-md-6 row-cols-lg-8 row-cols-xl-11 quote0">
+      <div class="grid-item" data-filter="laundry" role="button" tabindex="0">
+        <img src="img/services/laundry.webp" alt="Laundry" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Laundry</span>
+      </div>
+      <div class="grid-item" data-filter="tailoring" role="button" tabindex="0">
+        <img src="img/services/tailoring.webp" alt="Tailoring" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Tailoring</span>
+      </div>
+      <div class="grid-item" data-filter="repair" role="button" tabindex="0">
+        <img src="img/services/repair.webp" alt="Phone Repair" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Phone Repair</span>
+      </div>
+      <div class="grid-item" data-filter="dispatch" role="button" tabindex="0">
+        <img src="img/services/dispatch.webp" alt="Dispatch" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Dispatch</span>
+      </div>
+      <div class="grid-item" data-filter="braiding" role="button" tabindex="0">
+        <img src="img/services/braiding.webp" alt="Home Hair" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Home Hair</span>
+      </div>
+      <div class="grid-item" data-filter="decoration" role="button" tabindex="0">
+        <img src="img/services/decoration.webp" alt="Event Decor" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Event Decor</span>
+      </div>
+      <div class="grid-item" data-filter="servicing" role="button" tabindex="0">
+        <img src="img/services/servicing.webp" alt="AC Service" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">AC Service</span>
+      </div>
+      <div class="grid-item" data-filter="generator" role="button" tabindex="0">
+        <img src="img/services/generator.webp" alt="Generator Fix" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Generator Fix</span>
+      </div>
+      <div class="grid-item" data-filter="cleaning" role="button" tabindex="0">
+        <img src="img/services/cleaning.webp" alt="Cleaning" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Cleaning</span>
+      </div>
+      <div class="grid-item" data-filter="photography" role="button" tabindex="0">
+        <img src="img/services/photography.webp" alt="Photography" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Photography</span>
+      </div>
+      <div class="grid-item" data-filter="plumbing" role="button" tabindex="0">
+        <img src="img/services/plumbing.webp" alt="Plumbing" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Plumbing</span>
+      </div>
+      <div class="grid-item" data-filter="electrician" role="button" tabindex="0">
+        <img src="img/services/electrician.webp" alt="Electrician" class="img-fluid" width="400" height="400" loading="lazy" decoding="async" />
+        <span class="text">Electrician</span>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="my-2" />
+<footer class="footin" id="footin">
+  <div class="icons-social">
+    <article class="list-social" id="sm">
+      <span class="icons-social__item"><a class="icons-social__link" href="https://wa.me/2348028699824" aria-label="WhatsApp"><i class="icons-social__i fab fa-whatsapp"></i></a></span>
+      <span class="icons-social__item"><a class="icons-social__link" href="https://instagram.com/cudfirm"><i class="icons-social__i fab fa-instagram"></i></a></span>
+                      </article>
+  </div>
+</footer>
+
+
+  </section>
+
+  <!-- TAB 2: Categories -->
+
+  <section id="tab2" class="tab-content view">
+    <div class="p-2">
+      <h4>Categories</h4>
+      <p class="card card-body alert alert-secondary">
+        Browse everything on CUDMAZE by category. Tap one to see every product or service in it, from Computer Village gadgets to Mile 12 tomatoes.</p>
+    </div>
+    <hr/>
+
+    <div class="custom-max-w-4xl mx-auto">
+      <section>
+        <h2 class="fw-bold text-uppercase mb-4 custom-text-sm custom-tracking-widest custom-text-gray-500">Shop by Category</h2>
+        <div id="classic-regular-icons-container" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
+      </section>
+
+      <section class="custom-mt-12">
+        <h2 class="fw-bold text-uppercase mb-4 custom-text-sm custom-tracking-widest custom-text-gray-500">Everyday Services</h2>
+        <div id="classic-light-icons-container" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- TAB 3: Shop -->
+
+  <section id="tab3" class="tab-content view">
+    <div class="tab3-search-bar">
+      <div class="search-container-view">
+        <i class="bi bi-search"></i>
+        <input type="text" class="view-search" data-target-list="#serviceList" placeholder="Search products, services or sellers..." />
+      </div>
+    </div>
+    <div id="serviceList" class="view-content list-container">
+
+  <div class="list-item" data-product-id="fast-charger-33w" data-image="img/products/fast-charger-33w.webp" data-price="6500" data-was="8000" data-kind="product" data-variations="Colour:Black|White" data-search-text="33W Fast Charger + Type-C Cable Original-grade fast charger with 1m braided cable. Works with most Android phones. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Phones Charging sale deal hot trending ">
+    <img class="product-thumb" src="img/products/fast-charger-33w.webp" alt="33W Fast Charger + Type-C Cable" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">33W Fast Charger + Type-C Cable</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Original-grade fast charger with 1m braided cable. Works with most Android phones.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦6,500 <s class="was">₦8,000</s> <span class="save">-19%</span></div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Phones</span> <span class="tag gray">#Charging</span></p>
+  </div>
+  <div class="list-item" data-product-id="power-bank-20000" data-image="img/products/power-bank-20000.webp" data-price="18500" data-kind="product" data-variations="Colour:Black|Blue" data-search-text="Power Bank 20,000mAh Dual-USB power bank with LED display. Keeps your phone going through NEPA blackouts. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Power Travel  hot trending ">
+    <img class="product-thumb" src="img/products/power-bank-20000.webp" alt="Power Bank 20,000mAh" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Power Bank 20,000mAh</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Dual-USB power bank with LED display. Keeps your phone going through NEPA blackouts.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦18,500</div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Power</span> <span class="tag orange">#Travel</span></p>
+  </div>
+  <div class="list-item" data-product-id="wireless-earbuds" data-image="img/products/wireless-earbuds.webp" data-price="12000" data-was="15000" data-kind="product" data-variations="Colour:Black|White" data-search-text="Wireless Earbuds (Bluetooth 5.3) Clear sound, touch controls and a charging case. Up to 20 hours of play time. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Audio Wireless sale deal  new arrival">
+    <img class="product-thumb" src="img/products/wireless-earbuds.webp" alt="Wireless Earbuds (Bluetooth 5.3)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Wireless Earbuds (Bluetooth 5.3)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Clear sound, touch controls and a charging case. Up to 20 hours of play time.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦12,000 <s class="was">₦15,000</s> <span class="save">-20%</span></div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Audio</span> <span class="tag gray">#Wireless</span></p>
+  </div>
+  <div class="list-item" data-product-id="glass-and-case-bundle" data-image="img/products/glass-and-case-bundle.webp" data-price="3500" data-kind="product" data-variations="Phone Model:iPhone 13|iPhone 14|iPhone 15|Samsung A15|Tecno Spark 20|Infinix Hot 40" data-search-text="Screen Guard + Phone Case Bundle Tempered glass and shockproof case, fitted for your exact model. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Protection Phones   ">
+    <img class="product-thumb" src="img/products/glass-and-case-bundle.webp" alt="Screen Guard + Phone Case Bundle" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Screen Guard + Phone Case Bundle</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Tempered glass and shockproof case, fitted for your exact model.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦3,500</div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Protection</span> <span class="tag gray">#Phones</span></p>
+  </div>
+  <div class="list-item" data-product-id="tokunbo-iphone-11" data-image="img/products/tokunbo-iphone-11.webp" data-price="265000" data-was="285000" data-kind="product" data-variations="Colour:Black|White|Green|Purple" data-search-text="UK-Used iPhone 11 (64GB) Clean UK-used iPhone 11, tested and unlocked. 7-day shop warranty. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Phones UK-Used sale deal hot trending ">
+    <img class="product-thumb" src="img/products/tokunbo-iphone-11.webp" alt="UK-Used iPhone 11 (64GB)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">UK-Used iPhone 11 (64GB)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Clean UK-used iPhone 11, tested and unlocked. 7-day shop warranty.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦265,000 <s class="was">₦285,000</s> <span class="save">-7%</span></div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Phones</span> <span class="tag orange">#UK-Used</span></p>
+  </div>
+  <div class="list-item" data-product-id="smart-tv-32" data-image="img/products/smart-tv-32.webp" data-price="155000" data-was="175000" data-kind="product" data-search-text="32-inch Smart TV HD smart TV with built-in Wi-Fi, YouTube and Netflix apps. Wall-mount ready. Electronics &amp; Gadgets electronics Alaba Direct Electronics Alaba International Market, Ojo product TV Home sale deal hot trending ">
+    <img class="product-thumb" src="img/products/smart-tv-32.webp" alt="32-inch Smart TV" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">32-inch Smart TV</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>HD smart TV with built-in Wi-Fi, YouTube and Netflix apps. Wall-mount ready.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦155,000 <s class="was">₦175,000</s> <span class="save">-11%</span></div>
+    <p>Alaba Direct Electronics &middot; <span class="tag green">#TV</span> <span class="tag gray">#Home</span></p>
+  </div>
+  <div class="list-item" data-product-id="standing-fan-18" data-image="img/products/standing-fan-18.webp" data-price="38500" data-kind="product" data-variations="Colour:White|Black" data-search-text="Rechargeable Standing Fan (18&quot;) Runs for hours on battery when light goes. Three speeds and an LED night light. Electronics &amp; Gadgets electronics Alaba Direct Electronics Alaba International Market, Ojo product Cooling Rechargeable   ">
+    <img class="product-thumb" src="img/products/standing-fan-18.webp" alt="Rechargeable Standing Fan (18&quot;)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Rechargeable Standing Fan (18")</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Runs for hours on battery when light goes. Three speeds and an LED night light.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦38,500</div>
+    <p>Alaba Direct Electronics &middot; <span class="tag green">#Cooling</span> <span class="tag orange">#Rechargeable</span></p>
+  </div>
+  <div class="list-item" data-product-id="bluetooth-speaker" data-image="img/products/bluetooth-speaker.webp" data-price="9800" data-was="12500" data-kind="product" data-variations="Colour:Black|Red|Blue" data-search-text="Portable Bluetooth Speaker Loud, splash-proof speaker with 8-hour battery. Great for hangouts. Electronics &amp; Gadgets electronics Alaba Direct Electronics Alaba International Market, Ojo product Audio Portable sale deal  new arrival">
+    <img class="product-thumb" src="img/products/bluetooth-speaker.webp" alt="Portable Bluetooth Speaker" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Portable Bluetooth Speaker</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Loud, splash-proof speaker with 8-hour battery. Great for hangouts.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦9,800 <s class="was">₦12,500</s> <span class="save">-22%</span></div>
+    <p>Alaba Direct Electronics &middot; <span class="tag green">#Audio</span> <span class="tag gray">#Portable</span></p>
+  </div>
+  <div class="list-item" data-product-id="solar-lighting-kit" data-image="img/products/solar-lighting-kit.webp" data-price="45000" data-was="52000" data-kind="product" data-search-text="Solar Home Lighting Kit (4 Bulbs) Panel, 4 LED bulbs and phone-charging ports. No fuel, no NEPA wahala. Solar &amp; Power solar Surulere Solar Depot Adeniran Ogunsanya, Surulere product Solar Lighting sale deal hot trending ">
+    <img class="product-thumb" src="img/products/solar-lighting-kit.webp" alt="Solar Home Lighting Kit (4 Bulbs)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Solar Home Lighting Kit (4 Bulbs)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Panel, 4 LED bulbs and phone-charging ports. No fuel, no NEPA wahala.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦45,000 <s class="was">₦52,000</s> <span class="save">-13%</span></div>
+    <p>Surulere Solar Depot &middot; <span class="tag green">#Solar</span> <span class="tag gray">#Lighting</span></p>
+  </div>
+  <div class="list-item" data-product-id="inverter-battery-200ah" data-image="img/products/inverter-battery-200ah.webp" data-price="285000" data-kind="product" data-variations="Type:Tubular|Gel" data-search-text="Inverter Battery 200Ah Deep-cycle battery for 1kVA–2.5kVA inverters. 12-month warranty. Solar &amp; Power solar Surulere Solar Depot Adeniran Ogunsanya, Surulere product Power Inverter   ">
+    <img class="product-thumb" src="img/products/inverter-battery-200ah.webp" alt="Inverter Battery 200Ah" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Inverter Battery 200Ah</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Deep-cycle battery for 1kVA–2.5kVA inverters. 12-month warranty.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦285,000</div>
+    <p>Surulere Solar Depot &middot; <span class="tag green">#Power</span> <span class="tag orange">#Inverter</span></p>
+  </div>
+  <div class="list-item" data-product-id="rechargeable-lantern" data-image="img/products/rechargeable-lantern.webp" data-price="7500" data-kind="product" data-search-text="Rechargeable LED Lantern Bright rechargeable lantern with USB output. Up to 12 hours per charge. Solar &amp; Power solar Surulere Solar Depot Adeniran Ogunsanya, Surulere product Lighting Backup   new arrival">
+    <img class="product-thumb" src="img/products/rechargeable-lantern.webp" alt="Rechargeable LED Lantern" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Rechargeable LED Lantern</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Bright rechargeable lantern with USB output. Up to 12 hours per charge.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦7,500</div>
+    <p>Surulere Solar Depot &middot; <span class="tag green">#Lighting</span> <span class="tag gray">#Backup</span></p>
+  </div>
+  <div class="list-item" data-product-id="ankara-fabric-6-yards" data-image="img/products/ankara-fabric-6-yards.webp" data-price="14000" data-kind="product" data-variations="Pattern:Floral|Geometric|Abstract|Stripes" data-search-text="Ankara Fabric (6 Yards) Quality wax-print Ankara, six full yards. Colourfast and soft to sew. Fashion &amp; Fabrics fashion Balogun Fabric House Balogun Market, Lagos Island product Ankara Fabric  hot trending ">
+    <img class="product-thumb" src="img/products/ankara-fabric-6-yards.webp" alt="Ankara Fabric (6 Yards)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Ankara Fabric (6 Yards)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Quality wax-print Ankara, six full yards. Colourfast and soft to sew.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦14,000</div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Ankara</span> <span class="tag gray">#Fabric</span></p>
+  </div>
+  <div class="list-item" data-product-id="adire-fabric-5-yards" data-image="img/products/adire-fabric-5-yards.webp" data-price="12500" data-kind="product" data-variations="Colour:Indigo|Green|Brown" data-search-text="Adire Tie-Dye Fabric (5 Yards) Hand-dyed Yoruba adire on soft cotton. Each piece is unique. Fashion &amp; Fabrics fashion Balogun Fabric House Balogun Market, Lagos Island product Adire Handmade   ">
+    <img class="product-thumb" src="img/products/adire-fabric-5-yards.webp" alt="Adire Tie-Dye Fabric (5 Yards)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Adire Tie-Dye Fabric (5 Yards)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Hand-dyed Yoruba adire on soft cotton. Each piece is unique.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦12,500</div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Adire</span> <span class="tag orange">#Handmade</span></p>
+  </div>
+  <div class="list-item" data-product-id="senator-wear" data-image="img/products/senator-wear.webp" data-price="35000" data-was="42000" data-kind="product" data-variations="Size:M|L|XL|XXL;Colour:Navy|Black|Wine" data-search-text="Men&#x27;s Senator Wear (Ready-made) Neatly stitched two-piece senator outfit. Ready to wear for owambe or church. Fashion &amp; Fabrics fashion Balogun Fabric House Balogun Market, Lagos Island product Menswear Native sale deal  ">
+    <img class="product-thumb" src="img/products/senator-wear.webp" alt="Men&#x27;s Senator Wear (Ready-made)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Men's Senator Wear (Ready-made)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Neatly stitched two-piece senator outfit. Ready to wear for owambe or church.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦35,000 <s class="was">₦42,000</s> <span class="save">-17%</span></div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Menswear</span> <span class="tag orange">#Native</span></p>
+  </div>
+  <div class="list-item" data-product-id="ankara-gown" data-image="img/products/ankara-gown.webp" data-price="28000" data-kind="product" data-variations="Size:S|M|L|XL;Pattern:Floral|Geometric" data-search-text="Women&#x27;s Ankara Gown Fitted Ankara gown with a flattering cut. Lined and zipped. Fashion &amp; Fabrics fashion Balogun Fabric House Balogun Market, Lagos Island product Womenswear Ankara   new arrival">
+    <img class="product-thumb" src="img/products/ankara-gown.webp" alt="Women&#x27;s Ankara Gown" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Women's Ankara Gown</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Fitted Ankara gown with a flattering cut. Lined and zipped.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦28,000</div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Womenswear</span> <span class="tag gray">#Ankara</span></p>
+  </div>
+  <div class="list-item" data-product-id="leather-sandals" data-image="img/products/leather-sandals.webp" data-price="16500" data-kind="product" data-variations="Size:41|42|43|44|45" data-search-text="Men&#x27;s Leather Sandals Handmade leather palm slippers. Comfortable from day one. Fashion &amp; Fabrics fashion Balogun Fabric House Balogun Market, Lagos Island product Footwear Handmade   ">
+    <img class="product-thumb" src="img/products/leather-sandals.webp" alt="Men&#x27;s Leather Sandals" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Men's Leather Sandals</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Handmade leather palm slippers. Comfortable from day one.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦16,500</div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Footwear</span> <span class="tag orange">#Handmade</span></p>
+  </div>
+  <div class="list-item" data-product-id="ladies-handbag" data-image="img/products/ladies-handbag.webp" data-price="22000" data-was="26000" data-kind="product" data-variations="Colour:Black|Brown|Wine|Cream" data-search-text="Ladies&#x27; Handbag Roomy faux-leather handbag with zip pockets and a shoulder strap. Fashion &amp; Fabrics fashion Balogun Fabric House Balogun Market, Lagos Island product Bags Women sale deal  ">
+    <img class="product-thumb" src="img/products/ladies-handbag.webp" alt="Ladies&#x27; Handbag" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Ladies' Handbag</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Roomy faux-leather handbag with zip pockets and a shoulder strap.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦22,000 <s class="was">₦26,000</s> <span class="save">-15%</span></div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Bags</span> <span class="tag gray">#Women</span></p>
+  </div>
+  <div class="list-item" data-product-id="brazilian-hair-bundle" data-image="img/products/brazilian-hair-bundle.webp" data-price="45000" data-kind="product" data-variations="Length:12&quot;|14&quot;|16&quot;|18&quot;|20&quot;" data-search-text="Brazilian Hair Bundle Soft, tangle-free human hair bundle. Dye-able and easy to style. Beauty &amp; Hair beauty Lekki Glow Beauty Lekki Phase 1 product Hair Beauty  hot trending ">
+    <img class="product-thumb" src="img/products/brazilian-hair-bundle.webp" alt="Brazilian Hair Bundle" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Brazilian Hair Bundle</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Soft, tangle-free human hair bundle. Dye-able and easy to style.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦45,000</div>
+    <p>Lekki Glow Beauty &middot; <span class="tag green">#Hair</span> <span class="tag gray">#Beauty</span></p>
+  </div>
+  <div class="list-item" data-product-id="raw-shea-butter-500g" data-image="img/products/raw-shea-butter-500g.webp" data-price="4500" data-kind="product" data-search-text="Raw Shea Butter (500g) Unrefined, northern-Nigeria shea butter for skin and hair. Beauty &amp; Hair beauty Lekki Glow Beauty Lekki Phase 1 product Skincare Natural   ">
+    <img class="product-thumb" src="img/products/raw-shea-butter-500g.webp" alt="Raw Shea Butter (500g)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Raw Shea Butter (500g)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Unrefined, northern-Nigeria shea butter for skin and hair.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦4,500</div>
+    <p>Lekki Glow Beauty &middot; <span class="tag green">#Skincare</span> <span class="tag orange">#Natural</span></p>
+  </div>
+  <div class="list-item" data-product-id="black-soap-pack-6" data-image="img/products/black-soap-pack-6.webp" data-price="3800" data-kind="product" data-search-text="African Black Soap (Pack of 6) Traditional black soap bars for face and body. Gentle and natural. Beauty &amp; Hair beauty Lekki Glow Beauty Lekki Phase 1 product Skincare Natural   ">
+    <img class="product-thumb" src="img/products/black-soap-pack-6.webp" alt="African Black Soap (Pack of 6)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">African Black Soap (Pack of 6)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Traditional black soap bars for face and body. Gentle and natural.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦3,800</div>
+    <p>Lekki Glow Beauty &middot; <span class="tag green">#Skincare</span> <span class="tag orange">#Natural</span></p>
+  </div>
+  <div class="list-item" data-product-id="arabian-oud-50ml" data-image="img/products/arabian-oud-50ml.webp" data-price="8500" data-was="10000" data-kind="product" data-search-text="Arabian Oud Perfume Oil (50ml) Long-lasting oil-based fragrance that stays all day. Beauty &amp; Hair beauty Lekki Glow Beauty Lekki Phase 1 product Fragrance Gift sale deal  new arrival">
+    <img class="product-thumb" src="img/products/arabian-oud-50ml.webp" alt="Arabian Oud Perfume Oil (50ml)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Arabian Oud Perfume Oil (50ml)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Long-lasting oil-based fragrance that stays all day.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦8,500 <s class="was">₦10,000</s> <span class="save">-15%</span></div>
+    <p>Lekki Glow Beauty &middot; <span class="tag green">#Fragrance</span> <span class="tag orange">#Gift</span></p>
+  </div>
+  <div class="list-item" data-product-id="ofada-rice-5kg" data-image="img/products/ofada-rice-5kg.webp" data-price="15500" data-kind="product" data-search-text="Ofada Rice (5kg) Locally grown unpolished ofada rice, stone-free and well cleaned. Foodstuff &amp; Groceries food Oyingbo Grains &amp; Oils Oyingbo Market, Yaba product Rice Local  hot trending ">
+    <img class="product-thumb" src="img/products/ofada-rice-5kg.webp" alt="Ofada Rice (5kg)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Ofada Rice (5kg)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Locally grown unpolished ofada rice, stone-free and well cleaned.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦15,500</div>
+    <p>Oyingbo Grains &amp; Oils &middot; <span class="tag green">#Rice</span> <span class="tag orange">#Local</span></p>
+  </div>
+  <div class="list-item" data-product-id="oloyin-beans-5kg" data-image="img/products/oloyin-beans-5kg.webp" data-price="14000" data-kind="product" data-search-text="Oloyin Honey Beans (5kg) Sweet honey beans, picked and cleaned. Cooks faster, no stones. Foodstuff &amp; Groceries food Oyingbo Grains &amp; Oils Oyingbo Market, Yaba product Beans Staples   ">
+    <img class="product-thumb" src="img/products/oloyin-beans-5kg.webp" alt="Oloyin Honey Beans (5kg)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Oloyin Honey Beans (5kg)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Sweet honey beans, picked and cleaned. Cooks faster, no stones.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦14,000</div>
+    <p>Oyingbo Grains &amp; Oils &middot; <span class="tag green">#Beans</span> <span class="tag gray">#Staples</span></p>
+  </div>
+  <div class="list-item" data-product-id="garri-ijebu-10kg" data-image="img/products/garri-ijebu-10kg.webp" data-price="12500" data-kind="product" data-search-text="Ijebu Garri (10kg) Crispy, sour Ijebu garri. Perfect for drinking or eba. Foodstuff &amp; Groceries food Oyingbo Grains &amp; Oils Oyingbo Market, Yaba product Garri Staples   ">
+    <img class="product-thumb" src="img/products/garri-ijebu-10kg.webp" alt="Ijebu Garri (10kg)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Ijebu Garri (10kg)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Crispy, sour Ijebu garri. Perfect for drinking or eba.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦12,500</div>
+    <p>Oyingbo Grains &amp; Oils &middot; <span class="tag green">#Garri</span> <span class="tag gray">#Staples</span></p>
+  </div>
+  <div class="list-item" data-product-id="palm-oil-5l" data-image="img/products/palm-oil-5l.webp" data-price="13500" data-kind="product" data-search-text="Red Palm Oil (5 Litres) Pure, unadulterated red palm oil with a rich colour and aroma. Foodstuff &amp; Groceries food Oyingbo Grains &amp; Oils Oyingbo Market, Yaba product Oil Cooking   ">
+    <img class="product-thumb" src="img/products/palm-oil-5l.webp" alt="Red Palm Oil (5 Litres)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Red Palm Oil (5 Litres)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Pure, unadulterated red palm oil with a rich colour and aroma.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦13,500</div>
+    <p>Oyingbo Grains &amp; Oils &middot; <span class="tag green">#Oil</span> <span class="tag gray">#Cooking</span></p>
+  </div>
+  <div class="list-item" data-product-id="ground-egusi-1kg" data-image="img/products/ground-egusi-1kg.webp" data-price="7000" data-kind="product" data-search-text="Ground Egusi (1kg) Freshly ground egusi, ready for soup. Sealed and packed hygienically. Foodstuff &amp; Groceries food Oyingbo Grains &amp; Oils Oyingbo Market, Yaba product Soup Spices   new arrival">
+    <img class="product-thumb" src="img/products/ground-egusi-1kg.webp" alt="Ground Egusi (1kg)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Ground Egusi (1kg)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Freshly ground egusi, ready for soup. Sealed and packed hygienically.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦7,000</div>
+    <p>Oyingbo Grains &amp; Oils &middot; <span class="tag green">#Soup</span> <span class="tag gray">#Spices</span></p>
+  </div>
+  <div class="list-item" data-product-id="fresh-catfish-1kg" data-image="img/products/fresh-catfish-1kg.webp" data-price="6500" data-kind="product" data-variations="Cut:Whole|Cleaned &amp; Cut" data-search-text="Fresh Catfish (1kg) Live-market fresh catfish, cleaned and cut to your choice. Foodstuff &amp; Groceries food Mile 12 Fresh Basket Mile 12 Market, Kosofe product Fish Fresh   ">
+    <img class="product-thumb" src="img/products/fresh-catfish-1kg.webp" alt="Fresh Catfish (1kg)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Fresh Catfish (1kg)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Live-market fresh catfish, cleaned and cut to your choice.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦6,500</div>
+    <p>Mile 12 Fresh Basket &middot; <span class="tag green">#Fish</span> <span class="tag orange">#Fresh</span></p>
+  </div>
+  <div class="list-item" data-product-id="tomato-pepper-basket" data-image="img/products/tomato-pepper-basket.webp" data-price="22000" data-was="26000" data-kind="product" data-variations="Size:Small|Medium|Large" data-search-text="Tomato &amp; Pepper Basket Mile 12 basket of fresh tomatoes, tatashe and rodo. Delivered same day. Foodstuff &amp; Groceries food Mile 12 Fresh Basket Mile 12 Market, Kosofe product Fresh Vegetables sale deal hot trending ">
+    <img class="product-thumb" src="img/products/tomato-pepper-basket.webp" alt="Tomato &amp; Pepper Basket" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Tomato &amp; Pepper Basket</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Mile 12 basket of fresh tomatoes, tatashe and rodo. Delivered same day.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦22,000 <s class="was">₦26,000</s> <span class="save">-15%</span></div>
+    <p>Mile 12 Fresh Basket &middot; <span class="tag green">#Fresh</span> <span class="tag gray">#Vegetables</span></p>
+  </div>
+  <div class="list-item" data-product-id="nonstick-pan-set-3" data-image="img/products/nonstick-pan-set-3.webp" data-price="24000" data-was="28000" data-kind="product" data-search-text="Non-stick Frying Pan Set (3pcs) Three non-stick pans in graduated sizes. Easy to clean, even heating. Home &amp; Kitchen home Yaba Home Essentials Tejuosho Market, Yaba product Cookware Kitchen sale deal  ">
+    <img class="product-thumb" src="img/products/nonstick-pan-set-3.webp" alt="Non-stick Frying Pan Set (3pcs)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Non-stick Frying Pan Set (3pcs)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Three non-stick pans in graduated sizes. Easy to clean, even heating.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦24,000 <s class="was">₦28,000</s> <span class="save">-14%</span></div>
+    <p>Yaba Home Essentials &middot; <span class="tag green">#Cookware</span> <span class="tag gray">#Kitchen</span></p>
+  </div>
+  <div class="list-item" data-product-id="blender-1-5l" data-image="img/products/blender-1-5l.webp" data-price="26500" data-kind="product" data-variations="Colour:White|Silver" data-search-text="Blender (1.5L) Powerful blender for pepper, smoothies and soups. Glass jar. Home &amp; Kitchen home Yaba Home Essentials Tejuosho Market, Yaba product Appliance Kitchen   new arrival">
+    <img class="product-thumb" src="img/products/blender-1-5l.webp" alt="Blender (1.5L)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Blender (1.5L)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Powerful blender for pepper, smoothies and soups. Glass jar.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦26,500</div>
+    <p>Yaba Home Essentials &middot; <span class="tag green">#Appliance</span> <span class="tag gray">#Kitchen</span></p>
+  </div>
+  <div class="list-item" data-product-id="tabletop-gas-cooker" data-image="img/products/tabletop-gas-cooker.webp" data-price="32000" data-kind="product" data-search-text="Table-top Gas Cooker (2 Burner) Compact stainless gas cooker with auto-ignition. Home &amp; Kitchen home Yaba Home Essentials Tejuosho Market, Yaba product Cooker Kitchen   ">
+    <img class="product-thumb" src="img/products/tabletop-gas-cooker.webp" alt="Table-top Gas Cooker (2 Burner)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Table-top Gas Cooker (2 Burner)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Compact stainless gas cooker with auto-ignition.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦32,000</div>
+    <p>Yaba Home Essentials &middot; <span class="tag green">#Cooker</span> <span class="tag gray">#Kitchen</span></p>
+  </div>
+  <div class="list-item" data-product-id="cotton-bedsheet-set" data-image="img/products/cotton-bedsheet-set.webp" data-price="18500" data-was="22000" data-kind="product" data-variations="Size:4x6|5x6|6x6;Colour:White|Grey|Blue|Pink" data-search-text="Cotton Bedsheet Set Soft cotton bedsheet with two pillowcases. Does not fade after washing. Home &amp; Kitchen home Yaba Home Essentials Tejuosho Market, Yaba product Bedding Home sale deal  ">
+    <img class="product-thumb" src="img/products/cotton-bedsheet-set.webp" alt="Cotton Bedsheet Set" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Cotton Bedsheet Set</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Soft cotton bedsheet with two pillowcases. Does not fade after washing.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦18,500 <s class="was">₦22,000</s> <span class="save">-16%</span></div>
+    <p>Yaba Home Essentials &middot; <span class="tag green">#Bedding</span> <span class="tag gray">#Home</span></p>
+  </div>
+  <div class="list-item" data-product-id="digital-bp-monitor" data-image="img/products/digital-bp-monitor.webp" data-price="22000" data-kind="product" data-search-text="Digital Blood Pressure Monitor Easy arm-cuff monitor with memory and large display. Health &amp; Pharmacy health Maryland Care Pharmacy Maryland, Ikeja product Device Health   ">
+    <img class="product-thumb" src="img/products/digital-bp-monitor.webp" alt="Digital Blood Pressure Monitor" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Digital Blood Pressure Monitor</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Easy arm-cuff monitor with memory and large display.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦22,000</div>
+    <p>Maryland Care Pharmacy &middot; <span class="tag green">#Device</span> <span class="tag gray">#Health</span></p>
+  </div>
+  <div class="list-item" data-product-id="vitamin-c-zinc-60" data-image="img/products/vitamin-c-zinc-60.webp" data-price="6500" data-kind="product" data-search-text="Vitamin C + Zinc (60 Tablets) Daily immune support supplement. Follow the label directions. Health &amp; Pharmacy health Maryland Care Pharmacy Maryland, Ikeja product Wellness Supplement   ">
+    <img class="product-thumb" src="img/products/vitamin-c-zinc-60.webp" alt="Vitamin C + Zinc (60 Tablets)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Vitamin C + Zinc (60 Tablets)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Daily immune support supplement. Follow the label directions.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦6,500</div>
+    <p>Maryland Care Pharmacy &middot; <span class="tag green">#Wellness</span> <span class="tag orange">#Supplement</span></p>
+  </div>
+  <div class="list-item" data-product-id="baby-diapers-60" data-image="img/products/baby-diapers-60.webp" data-price="14500" data-was="16500" data-kind="product" data-variations="Size:S|M|L|XL" data-search-text="Baby Diapers (Pack of 60) Soft, breathable diapers with 12-hour dryness. Baby &amp; Kids baby Ikota Kids &amp; Baby Ikota, Lekki product Baby Care sale deal hot trending ">
+    <img class="product-thumb" src="img/products/baby-diapers-60.webp" alt="Baby Diapers (Pack of 60)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Baby Diapers (Pack of 60)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Soft, breathable diapers with 12-hour dryness.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦14,500 <s class="was">₦16,500</s> <span class="save">-12%</span></div>
+    <p>Ikota Kids &amp; Baby &middot; <span class="tag green">#Baby</span> <span class="tag gray">#Care</span></p>
+  </div>
+  <div class="list-item" data-product-id="school-bag-lunch-set" data-image="img/products/school-bag-lunch-set.webp" data-price="13500" data-kind="product" data-variations="Colour:Blue|Pink|Black|Red" data-search-text="School Bag + Lunch Box Set Sturdy, water-resistant school bag with matching lunch box and bottle. Baby &amp; Kids baby Ikota Kids &amp; Baby Ikota, Lekki product School Kids   new arrival">
+    <img class="product-thumb" src="img/products/school-bag-lunch-set.webp" alt="School Bag + Lunch Box Set" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">School Bag + Lunch Box Set</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Sturdy, water-resistant school bag with matching lunch box and bottle.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦13,500</div>
+    <p>Ikota Kids &amp; Baby &middot; <span class="tag green">#School</span> <span class="tag gray">#Kids</span></p>
+  </div>
+  <div class="list-item" data-product-id="engine-oil-5w30-4l" data-image="img/products/engine-oil-5w30-4l.webp" data-price="28500" data-kind="product" data-search-text="Engine Oil 5W-30 (4L) Fully synthetic engine oil for modern petrol engines. Auto Parts &amp; Care auto Ladipo Auto Spares Ladipo Market, Mushin product Car Care Oil   ">
+    <img class="product-thumb" src="img/products/engine-oil-5w30-4l.webp" alt="Engine Oil 5W-30 (4L)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Engine Oil 5W-30 (4L)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Fully synthetic engine oil for modern petrol engines.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦28,500</div>
+    <p>Ladipo Auto Spares &middot; <span class="tag green">#Car Care</span> <span class="tag gray">#Oil</span></p>
+  </div>
+  <div class="list-item" data-product-id="car-phone-holder-charger" data-image="img/products/car-phone-holder-charger.webp" data-price="5500" data-kind="product" data-search-text="Car Phone Holder + Dual Charger Dashboard holder with a dual-USB car charger. Fits most phones. Auto Parts &amp; Care auto Ladipo Auto Spares Ladipo Market, Mushin product Accessories Car   ">
+    <img class="product-thumb" src="img/products/car-phone-holder-charger.webp" alt="Car Phone Holder + Dual Charger" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Car Phone Holder + Dual Charger</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Dashboard holder with a dual-USB car charger. Fits most phones.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦5,500</div>
+    <p>Ladipo Auto Spares &middot; <span class="tag green">#Accessories</span> <span class="tag gray">#Car</span></p>
+  </div>
+  <div class="list-item" data-product-id="led-bulb-pack-10" data-image="img/products/led-bulb-pack-10.webp" data-price="9000" data-was="10500" data-kind="product" data-variations="Light:Warm White|Cool White" data-search-text="LED Bulb Pack (10 × 12W) Energy-saving 12W bulbs. Cuts your light bill, lasts for years. Building &amp; Hardware hardware Surulere Solar Depot Adeniran Ogunsanya, Surulere product Lighting Home sale deal  ">
+    <img class="product-thumb" src="img/products/led-bulb-pack-10.webp" alt="LED Bulb Pack (10 × 12W)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">LED Bulb Pack (10 × 12W)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Energy-saving 12W bulbs. Cuts your light bill, lasts for years.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦9,000 <s class="was">₦10,500</s> <span class="save">-14%</span></div>
+    <p>Surulere Solar Depot &middot; <span class="tag green">#Lighting</span> <span class="tag gray">#Home</span></p>
+  </div>
+  <div class="list-item" data-product-id="heavy-duty-padlock-set" data-image="img/products/heavy-duty-padlock-set.webp" data-price="6500" data-kind="product" data-search-text="Heavy-duty Padlock Set (2) Two hardened-steel padlocks with three keys each. Building &amp; Hardware hardware Ladipo Auto Spares Ladipo Market, Mushin product Security Hardware   ">
+    <img class="product-thumb" src="img/products/heavy-duty-padlock-set.webp" alt="Heavy-duty Padlock Set (2)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Heavy-duty Padlock Set (2)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Two hardened-steel padlocks with three keys each.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Buy</button>
+    </div>
+    <div class="product-price">₦6,500</div>
+    <p>Ladipo Auto Spares &middot; <span class="tag green">#Security</span> <span class="tag gray">#Hardware</span></p>
+  </div>
+  <div class="list-item" data-product-id="laundry-pickup" data-image="img/products/laundry-pickup.webp" data-price="3500" data-kind="service" data-from="1" data-qty="off" data-variations="Service:Wash &amp; Fold|Wash &amp; Iron|Dry-clean" data-search-text="Laundry &amp; Dry-cleaning Pickup Doorstep pickup and return, 48-hour turnaround. Priced per bag. Services services CUDMAZE Express All of Lagos service Laundry Doorstep  hot trending ">
+    <img class="product-thumb" src="img/products/laundry-pickup.webp" alt="Laundry &amp; Dry-cleaning Pickup" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Laundry &amp; Dry-cleaning Pickup</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Doorstep pickup and return, 48-hour turnaround. Priced per bag.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦3,500</div>
+    <p>CUDMAZE Express &middot; <span class="tag green">#Laundry</span> <span class="tag orange">#Doorstep</span></p>
+  </div>
+  <div class="list-item" data-product-id="phone-screen-repair" data-image="img/products/phone-screen-repair.webp" data-price="18000" data-kind="service" data-from="1" data-qty="off" data-variations="Phone Model:iPhone 11|iPhone 12|iPhone 13|Samsung A-series|Tecno|Infinix" data-search-text="Phone Screen Repair Same-day screen replacement by Computer Village technicians. Services services Ikeja Gadget Hub Computer Village, Ikeja service Repair Phones   ">
+    <img class="product-thumb" src="img/products/phone-screen-repair.webp" alt="Phone Screen Repair" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Phone Screen Repair</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Same-day screen replacement by Computer Village technicians.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦18,000</div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Repair</span> <span class="tag gray">#Phones</span></p>
+  </div>
+  <div class="list-item" data-product-id="custom-tailoring" data-image="img/products/custom-tailoring.webp" data-price="15000" data-kind="service" data-from="1" data-qty="off" data-variations="Outfit:Gown|Skirt &amp; Blouse|Senator|Agbada" data-search-text="Custom Tailoring (Ankara &amp; Native) Bring your fabric or buy ours. Measurements taken by WhatsApp or in store. Services services Balogun Fabric House Balogun Market, Lagos Island service Tailoring Custom   new arrival">
+    <img class="product-thumb" src="img/products/custom-tailoring.webp" alt="Custom Tailoring (Ankara &amp; Native)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Custom Tailoring (Ankara &amp; Native)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Bring your fabric or buy ours. Measurements taken by WhatsApp or in store.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦15,000</div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Tailoring</span> <span class="tag orange">#Custom</span></p>
+  </div>
+  <div class="list-item" data-product-id="dispatch-rider-lagos" data-image="img/products/dispatch-rider-lagos.webp" data-price="2500" data-kind="service" data-from="1" data-qty="off" data-variations="Zone:Same Area|Island ⇄ Mainland|Ikorodu / Epe" data-search-text="Dispatch Rider Delivery Fast bike delivery within Lagos. Track your rider on WhatsApp. Services services CUDMAZE Express All of Lagos service Delivery Same-day  hot trending ">
+    <img class="product-thumb" src="img/products/dispatch-rider-lagos.webp" alt="Dispatch Rider Delivery" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Dispatch Rider Delivery</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Fast bike delivery within Lagos. Track your rider on WhatsApp.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦2,500</div>
+    <p>CUDMAZE Express &middot; <span class="tag green">#Delivery</span> <span class="tag orange">#Same-day</span></p>
+  </div>
+  <div class="list-item" data-product-id="home-hair-braiding" data-image="img/products/home-hair-braiding.webp" data-price="20000" data-kind="service" data-from="1" data-qty="off" data-variations="Style:Box Braids|Knotless|Cornrows|Twists" data-search-text="Home Hair Braiding Stylist comes to your home or hotel. Hair added on request. Services services Lekki Glow Beauty Lekki Phase 1 service Hair Home Service   ">
+    <img class="product-thumb" src="img/products/home-hair-braiding.webp" alt="Home Hair Braiding" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Home Hair Braiding</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Stylist comes to your home or hotel. Hair added on request.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦20,000</div>
+    <p>Lekki Glow Beauty &middot; <span class="tag green">#Hair</span> <span class="tag orange">#Home Service</span></p>
+  </div>
+  <div class="list-item" data-product-id="event-decoration" data-image="img/products/event-decoration.webp" data-price="" data-kind="service" data-qty="off" data-search-text="Event Decoration &amp; Rentals Tents, chairs, balloons and decor for birthdays, weddings and owambe. Tell us your date and budget. Services services Lagos Home Pros Island &amp; Mainland service Events Rentals   ">
+    <img class="product-thumb" src="img/products/event-decoration.webp" alt="Event Decoration &amp; Rentals" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Event Decoration &amp; Rentals</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Tents, chairs, balloons and decor for birthdays, weddings and owambe. Tell us your date and budget.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price is-tbc">Price on request</div>
+    <p>Lagos Home Pros &middot; <span class="tag green">#Events</span> <span class="tag orange">#Rentals</span></p>
+  </div>
+  <div class="list-item" data-product-id="ac-servicing" data-image="img/products/ac-servicing.webp" data-price="15000" data-kind="service" data-from="1" data-qty="off" data-variations="Type:Split Unit|Window Unit" data-search-text="AC Servicing &amp; Gas Refill Cleaning, checks and gas top-up for split or window units. Services services Lagos Home Pros Island &amp; Mainland service AC Maintenance   ">
+    <img class="product-thumb" src="img/products/ac-servicing.webp" alt="AC Servicing &amp; Gas Refill" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">AC Servicing &amp; Gas Refill</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Cleaning, checks and gas top-up for split or window units.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦15,000</div>
+    <p>Lagos Home Pros &middot; <span class="tag green">#AC</span> <span class="tag gray">#Maintenance</span></p>
+  </div>
+  <div class="list-item" data-product-id="generator-servicing" data-image="img/products/generator-servicing.webp" data-price="12000" data-kind="service" data-from="1" data-qty="off" data-variations="Size:Small (1–3kVA)|Medium (5–10kVA)" data-search-text="Generator Repair &amp; Servicing Servicing, carburettor cleaning and repairs for petrol and diesel gens. Services services Lagos Home Pros Island &amp; Mainland service Generator Repair   ">
+    <img class="product-thumb" src="img/products/generator-servicing.webp" alt="Generator Repair &amp; Servicing" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Generator Repair &amp; Servicing</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Servicing, carburettor cleaning and repairs for petrol and diesel gens.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦12,000</div>
+    <p>Lagos Home Pros &middot; <span class="tag green">#Generator</span> <span class="tag gray">#Repair</span></p>
+  </div>
+  <div class="list-item" data-product-id="home-cleaning" data-image="img/products/home-cleaning.webp" data-price="25000" data-kind="service" data-from="1" data-qty="off" data-variations="Space:1-bedroom|2-bedroom|3-bedroom|Office" data-search-text="Home &amp; Office Cleaning Deep cleaning by a trained, vetted team. Supplies included. Services services Lagos Home Pros Island &amp; Mainland service Cleaning Home   new arrival">
+    <img class="product-thumb" src="img/products/home-cleaning.webp" alt="Home &amp; Office Cleaning" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Home &amp; Office Cleaning</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Deep cleaning by a trained, vetted team. Supplies included.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦25,000</div>
+    <p>Lagos Home Pros &middot; <span class="tag green">#Cleaning</span> <span class="tag gray">#Home</span></p>
+  </div>
+  <div class="list-item" data-product-id="plumbing-repairs" data-image="img/products/plumbing-repairs.webp" data-price="8000" data-kind="service" data-from="1" data-qty="off" data-search-text="Plumbing Repairs Leaks, taps, toilets and pump fittings sorted fast. Services services Lagos Home Pros Island &amp; Mainland service Plumbing Repair   ">
+    <img class="product-thumb" src="img/products/plumbing-repairs.webp" alt="Plumbing Repairs" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Plumbing Repairs</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Leaks, taps, toilets and pump fittings sorted fast.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦8,000</div>
+    <p>Lagos Home Pros &middot; <span class="tag green">#Plumbing</span> <span class="tag gray">#Repair</span></p>
+  </div>
+  <div class="list-item" data-product-id="electrician-visit" data-image="img/products/electrician-visit.webp" data-price="7000" data-kind="service" data-from="1" data-qty="off" data-search-text="Electrician Visit Wiring faults, sockets, changeover switches and installations. Services services Lagos Home Pros Island &amp; Mainland service Electrical Repair   ">
+    <img class="product-thumb" src="img/products/electrician-visit.webp" alt="Electrician Visit" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Electrician Visit</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Wiring faults, sockets, changeover switches and installations.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦7,000</div>
+    <p>Lagos Home Pros &middot; <span class="tag green">#Electrical</span> <span class="tag gray">#Repair</span></p>
+  </div>
+  <div class="list-item" data-product-id="event-photography" data-image="img/products/event-photography.webp" data-price="60000" data-kind="service" data-from="1" data-qty="off" data-variations="Coverage:Half Day|Full Day" data-search-text="Event Photography &amp; Coverage Photos for birthdays, weddings and corporate events. Edited gallery in 5 days. Services services CUDMAZE Express All of Lagos service Photography Events   ">
+    <img class="product-thumb" src="img/products/event-photography.webp" alt="Event Photography &amp; Coverage" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Event Photography &amp; Coverage</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Photos for birthdays, weddings and corporate events. Edited gallery in 5 days.</h6>
+      <button type="button" class="btn btn-success" data-product-open>Book</button>
+    </div>
+    <div class="product-price">From ₦60,000</div>
+    <p>CUDMAZE Express &middot; <span class="tag green">#Photography</span> <span class="tag orange">#Events</span></p>
+  </div>
+  <div class="list-item" data-search-text="request custom order cannot find missing item">
+    <div class="item-icon">Can&rsquo;t Find It?</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Tell us what you need and we&rsquo;ll source it from a trusted Lagos seller.</h6>
+      <button type="button" class="btn btn-primary" data-tab="tab16">Request</button>
+    </div>
+    <p>CUDMAZE &middot; <span class="tag green">#Sourcing</span> <span class="tag orange">#Custom</span></p>
+  </div>
+
+</div>
+
+<div id="shopEmpty" class="alert alert-secondary m-2" role="status" hidden>
+  <strong>Nothing matches your search yet.</strong> Try another word, or <button type="button" class="btn btn-link p-0 align-baseline" data-filter="">show everything</button> &middot; <button type="button" class="btn btn-link p-0 align-baseline" data-tab="tab16">request this item</button>.
+</div>
+
+  </section>
+
+  <!-- TAB 4: Sellers -->
+
+  <section id="tab4" class="tab-content view">
+    <div class="tab3-search-bar">
+      <div class="search-container-view">
+        <i class="bi bi-search"></i>
+        <input type="text" class="view-search" data-target-list="#sellerList" placeholder="Search sellers or areas..." />
+      </div>
+    </div>
+    <div id="sellerList" class="view-content list-container">
+
+  <div class="list-item" data-search-text="Ikeja Gadget Hub Computer Village, Ikeja Phones, laptops, accessories &amp; repairs verified seller store">
+    <div class="item-icon">Ikeja Gadget Hub</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Phones, laptops, accessories &amp; repairs</h6>
+      <button type="button" class="btn btn-success" data-filter="Ikeja Gadget Hub">Visit Store</button>
+    </div>
+    <p>Computer Village, Ikeja &middot; <span class="tag green">&#9733; 4.8</span> <span class="tag gray">6 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Balogun Fabric House Balogun Market, Lagos Island Ankara, adire, lace &amp; ready-to-wear verified seller store">
+    <div class="item-icon">Balogun Fabric House</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Ankara, adire, lace &amp; ready-to-wear</h6>
+      <button type="button" class="btn btn-success" data-filter="Balogun Fabric House">Visit Store</button>
+    </div>
+    <p>Balogun Market, Lagos Island &middot; <span class="tag green">&#9733; 4.7</span> <span class="tag gray">7 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Mile 12 Fresh Basket Mile 12 Market, Kosofe Fresh tomatoes, pepper, fish &amp; vegetables verified seller store">
+    <div class="item-icon">Mile 12 Fresh Basket</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Fresh tomatoes, pepper, fish &amp; vegetables</h6>
+      <button type="button" class="btn btn-success" data-filter="Mile 12 Fresh Basket">Visit Store</button>
+    </div>
+    <p>Mile 12 Market, Kosofe &middot; <span class="tag green">&#9733; 4.6</span> <span class="tag gray">2 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Oyingbo Grains &amp; Oils Oyingbo Market, Yaba Rice, beans, garri, oils &amp; spices verified seller store">
+    <div class="item-icon">Oyingbo Grains &amp; Oils</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Rice, beans, garri, oils &amp; spices</h6>
+      <button type="button" class="btn btn-success" data-filter="Oyingbo Grains &amp; Oils">Visit Store</button>
+    </div>
+    <p>Oyingbo Market, Yaba &middot; <span class="tag green">&#9733; 4.8</span> <span class="tag gray">5 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Surulere Solar Depot Adeniran Ogunsanya, Surulere Solar kits, inverters, batteries &amp; lighting verified seller store">
+    <div class="item-icon">Surulere Solar Depot</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Solar kits, inverters, batteries &amp; lighting</h6>
+      <button type="button" class="btn btn-success" data-filter="Surulere Solar Depot">Visit Store</button>
+    </div>
+    <p>Adeniran Ogunsanya, Surulere &middot; <span class="tag green">&#9733; 4.7</span> <span class="tag gray">4 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Lekki Glow Beauty Lekki Phase 1 Hair, skincare, fragrances &amp; wigs verified seller store">
+    <div class="item-icon">Lekki Glow Beauty</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Hair, skincare, fragrances &amp; wigs</h6>
+      <button type="button" class="btn btn-success" data-filter="Lekki Glow Beauty">Visit Store</button>
+    </div>
+    <p>Lekki Phase 1 &middot; <span class="tag green">&#9733; 4.9</span> <span class="tag gray">5 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Yaba Home Essentials Tejuosho Market, Yaba Kitchenware, bedding &amp; small appliances verified seller store">
+    <div class="item-icon">Yaba Home Essentials</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Kitchenware, bedding &amp; small appliances</h6>
+      <button type="button" class="btn btn-success" data-filter="Yaba Home Essentials">Visit Store</button>
+    </div>
+    <p>Tejuosho Market, Yaba &middot; <span class="tag green">&#9733; 4.5</span> <span class="tag gray">4 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Alaba Direct Electronics Alaba International Market, Ojo TVs, fans, speakers &amp; home electronics verified seller store">
+    <div class="item-icon">Alaba Direct Electronics</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>TVs, fans, speakers &amp; home electronics</h6>
+      <button type="button" class="btn btn-success" data-filter="Alaba Direct Electronics">Visit Store</button>
+    </div>
+    <p>Alaba International Market, Ojo &middot; <span class="tag green">&#9733; 4.6</span> <span class="tag gray">3 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Ikota Kids &amp; Baby Ikota, Lekki Diapers, school bags, toys &amp; baby care verified seller store">
+    <div class="item-icon">Ikota Kids &amp; Baby</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Diapers, school bags, toys &amp; baby care</h6>
+      <button type="button" class="btn btn-success" data-filter="Ikota Kids &amp; Baby">Visit Store</button>
+    </div>
+    <p>Ikota, Lekki &middot; <span class="tag green">&#9733; 4.8</span> <span class="tag gray">2 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Ladipo Auto Spares Ladipo Market, Mushin Engine oil, spare parts &amp; car accessories verified seller store">
+    <div class="item-icon">Ladipo Auto Spares</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Engine oil, spare parts &amp; car accessories</h6>
+      <button type="button" class="btn btn-success" data-filter="Ladipo Auto Spares">Visit Store</button>
+    </div>
+    <p>Ladipo Market, Mushin &middot; <span class="tag green">&#9733; 4.5</span> <span class="tag gray">3 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Maryland Care Pharmacy Maryland, Ikeja Health devices &amp; over-the-counter wellness verified seller store">
+    <div class="item-icon">Maryland Care Pharmacy</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Health devices &amp; over-the-counter wellness</h6>
+      <button type="button" class="btn btn-success" data-filter="Maryland Care Pharmacy">Visit Store</button>
+    </div>
+    <p>Maryland, Ikeja &middot; <span class="tag green">&#9733; 4.9</span> <span class="tag gray">2 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="CUDMAZE Express All of Lagos Dispatch riders, laundry pickup &amp; home services verified seller store">
+    <div class="item-icon">CUDMAZE Express</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Dispatch riders, laundry pickup &amp; home services</h6>
+      <button type="button" class="btn btn-success" data-filter="CUDMAZE Express">Visit Store</button>
+    </div>
+    <p>All of Lagos &middot; <span class="tag green">&#9733; 4.7</span> <span class="tag gray">3 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Lagos Home Pros Island &amp; Mainland AC, generator, plumbing, electrical &amp; cleaning verified seller store">
+    <div class="item-icon">Lagos Home Pros</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>AC, generator, plumbing, electrical &amp; cleaning</h6>
+      <button type="button" class="btn btn-success" data-filter="Lagos Home Pros">Visit Store</button>
+    </div>
+    <p>Island &amp; Mainland &middot; <span class="tag green">&#9733; 4.6</span> <span class="tag gray">6 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 5: Market Days -->
+
+  <section id="tab5" class="tab-content view">
+    <div class="p-2">
+      <h4>Market Days</h4>
+      <p class="card card-body alert alert-secondary">
+        Upcoming sales, fairs and shopping seasons in Lagos. Tap an event to jump straight to the goods.
+      </p>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-tags me-2" style="color: var(--color-primary-new)"></i>Black Friday Mega Sale</h5>
+        <p class="mb-0"><strong>Fri 27 Nov 2026</strong><br />Big markdowns on phones, TVs, fans and kitchen appliances from our electronics sellers.</p><button type="button" class="btn btn-success mt-2" data-tab="tab14">Shop the Deals</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-gift me-2" style="color: var(--color-primary-new)"></i>Detty December Gift Fair</h5>
+        <p class="mb-0"><strong>All December 2026</strong><br />Hampers, perfumes, fabrics and gift sets for owambe season and family visits.</p><button type="button" class="btn btn-success mt-2" data-filter="Gifts">Browse Gifts</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-scissors me-2" style="color: var(--color-primary-new)"></i>Owambe Fabric Fest</h5>
+        <p class="mb-0"><strong>Saturdays in December</strong><br />Fresh Ankara, adire and lace drops from Balogun and Tejuosho vendors.</p><button type="button" class="btn btn-success mt-2" data-filter="Fashion &amp; Fabrics">See Fabrics</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-backpack me-2" style="color: var(--color-primary-new)"></i>Back-to-School Week</h5>
+        <p class="mb-0"><strong>First week of January 2027</strong><br />School bags, lunch sets, stationery and uniforms ready before resumption.</p><button type="button" class="btn btn-success mt-2" data-filter="Baby &amp; Kids">Shop School Items</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-heart me-2" style="color: var(--color-primary-new)"></i>Valentine Gift Drop</h5>
+        <p class="mb-0"><strong>Week of 8 Feb 2027</strong><br />Perfumes, hair, bags and same-day delivery across the Island and Mainland.</p><button type="button" class="btn btn-success mt-2" data-filter="Beauty &amp; Hair">Shop Gifts</button>
+      </div></div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 6: How It Works -->
+
+  <section id="tab6" class="tab-content view">
+    <div class="p-2">
+      <h4>How It Works</h4>
+      <p class="card card-body alert alert-secondary">
+        Shopping on CUDMAZE takes four simple steps.
+      </p>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-search me-2" style="color: var(--color-primary-new)"></i>1. Find what you need</h5>
+        <p class="mb-0">Browse by category, search for an item or visit a seller&rsquo;s store. Every listing shows its price and photos.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-sliders me-2" style="color: var(--color-primary-new)"></i>2. Choose your options</h5>
+        <p class="mb-0">Open the item, pick your size, colour or quantity and add an optional note, like a price request or a customisation.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-whatsapp me-2" style="color: var(--color-primary-new)"></i>3. Order on WhatsApp</h5>
+        <p class="mb-0">Tap <strong>Buy on WhatsApp</strong>. A ready-written message with the item, price and link opens in WhatsApp. No account needed.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-truck me-2" style="color: var(--color-primary-new)"></i>4. Confirm, pay &amp; receive</h5>
+        <p class="mb-0">We confirm availability and delivery fee, you pay, and a dispatch rider brings it to your door. Inspect before you accept.</p>
+      </div></div>
+<div class="card card-body mb-2"><strong>Want a saved cart?</strong><span> Create a free account to keep items in your cart across devices and check out several items in one WhatsApp message.</span></div>
+    </div>
+
+  </section>
+
+  <!-- TAB 7: Delivery -->
+
+  <section id="tab7" class="tab-content view">
+    <div class="p-2">
+      <h4>Delivery</h4>
+      <p class="card card-body alert alert-secondary">
+        We deliver across Lagos by dispatch rider and van, and ship to other states.
+      </p>
+      <div class="table-responsive"><table class="table table-sm align-middle mb-2">
+        <thead><tr><th>Area</th><th>Typical time</th><th>Fee from</th></tr></thead>
+        <tbody>
+          <tr><td>Lagos Mainland<br /><small class="text-secondary">Ikeja, Yaba, Surulere, Maryland, Ojota</small></td><td>Same day</td><td>&#8358;1,500</td></tr>
+          <tr><td>Lagos Island<br /><small class="text-secondary">VI, Ikoyi, Lekki, Ajah</small></td><td>Same / next day</td><td>&#8358;2,500</td></tr>
+          <tr><td>Outskirts<br /><small class="text-secondary">Ikorodu, Epe, Badagry, Ikotun</small></td><td>1&ndash;2 days</td><td>&#8358;3,500</td></tr>
+          <tr><td>Other states<br /><small class="text-secondary">Via park or courier</small></td><td>2&ndash;5 days</td><td>Quoted</td></tr>
+        </tbody></table></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-info-circle me-2" style="color: var(--color-primary-new)"></i>Fees can change</h5>
+        <p class="mb-0">Large items and far addresses cost more. We confirm your exact delivery fee on WhatsApp before you pay.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-shop me-2" style="color: var(--color-primary-new)"></i>Pick-up is free</h5>
+        <p class="mb-0">Prefer to collect from the seller&rsquo;s shop or market stall? Ask for pick-up when you order.</p>
+      </div></div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 8: Sell With Us -->
+
+  <section id="tab8" class="tab-content view">
+    <div class="p-2">
+      <h4>Sell With Us</h4>
+      <p class="card card-body alert alert-secondary">
+        Own a shop, market stall or service business in Lagos? Sell on CUDMAZE.
+      </p>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-people me-2" style="color: var(--color-primary-new)"></i>Reach more Lagos shoppers</h5>
+        <p class="mb-0">List your shop or service and get orders straight to your WhatsApp.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-lightning-charge me-2" style="color: var(--color-primary-new)"></i>Simple to start</h5>
+        <p class="mb-0">Send us your item names, photos and prices. We set up your listings and your seller page.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-cash-coin me-2" style="color: var(--color-primary-new)"></i>Keep what you earn</h5>
+        <p class="mb-0">No monthly fee to start. Ask us about our small commission on completed sales.</p>
+      </div></div>
+<button type="button" class="btn btn-whatsapp mt-2" data-wa="Hello CUDMAZE, I would like to become a seller on CUDMAZE.&#10;&#10;Shop / business name:&#10;What I sell:&#10;Location in Lagos:&#10;Phone number:"><i class="bi bi-whatsapp" aria-hidden="true"></i> Apply to Sell on WhatsApp</button>
+    </div>
+
+  </section>
+
+  <!-- TAB 9: Top Sellers -->
+
+  <section id="tab9" class="tab-content view">
+    <div class="p-2">
+      <h4>Top Sellers</h4>
+      <p class="card card-body alert alert-secondary">
+        The highest-rated stores on CUDMAZE this month.
+      </p>
+<div id="topList" class="view-content list-container">
+  <div class="list-item" data-search-text="Lekki Glow Beauty Lekki Phase 1 Hair, skincare, fragrances &amp; wigs verified seller store">
+    <div class="item-icon">1. Lekki Glow Beauty</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Hair, skincare, fragrances &amp; wigs</h6>
+      <button type="button" class="btn btn-success" data-filter="Lekki Glow Beauty">Visit Store</button>
+    </div>
+    <p>Lekki Phase 1 &middot; <span class="tag green">&#9733; 4.9</span> <span class="tag gray">5 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Maryland Care Pharmacy Maryland, Ikeja Health devices &amp; over-the-counter wellness verified seller store">
+    <div class="item-icon">2. Maryland Care Pharmacy</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Health devices &amp; over-the-counter wellness</h6>
+      <button type="button" class="btn btn-success" data-filter="Maryland Care Pharmacy">Visit Store</button>
+    </div>
+    <p>Maryland, Ikeja &middot; <span class="tag green">&#9733; 4.9</span> <span class="tag gray">2 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Ikeja Gadget Hub Computer Village, Ikeja Phones, laptops, accessories &amp; repairs verified seller store">
+    <div class="item-icon">3. Ikeja Gadget Hub</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Phones, laptops, accessories &amp; repairs</h6>
+      <button type="button" class="btn btn-success" data-filter="Ikeja Gadget Hub">Visit Store</button>
+    </div>
+    <p>Computer Village, Ikeja &middot; <span class="tag green">&#9733; 4.8</span> <span class="tag gray">6 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Oyingbo Grains &amp; Oils Oyingbo Market, Yaba Rice, beans, garri, oils &amp; spices verified seller store">
+    <div class="item-icon">4. Oyingbo Grains &amp; Oils</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Rice, beans, garri, oils &amp; spices</h6>
+      <button type="button" class="btn btn-success" data-filter="Oyingbo Grains &amp; Oils">Visit Store</button>
+    </div>
+    <p>Oyingbo Market, Yaba &middot; <span class="tag green">&#9733; 4.8</span> <span class="tag gray">5 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Ikota Kids &amp; Baby Ikota, Lekki Diapers, school bags, toys &amp; baby care verified seller store">
+    <div class="item-icon">5. Ikota Kids &amp; Baby</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Diapers, school bags, toys &amp; baby care</h6>
+      <button type="button" class="btn btn-success" data-filter="Ikota Kids &amp; Baby">Visit Store</button>
+    </div>
+    <p>Ikota, Lekki &middot; <span class="tag green">&#9733; 4.8</span> <span class="tag gray">2 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+  <div class="list-item" data-search-text="Balogun Fabric House Balogun Market, Lagos Island Ankara, adire, lace &amp; ready-to-wear verified seller store">
+    <div class="item-icon">6. Balogun Fabric House</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Ankara, adire, lace &amp; ready-to-wear</h6>
+      <button type="button" class="btn btn-success" data-filter="Balogun Fabric House">Visit Store</button>
+    </div>
+    <p>Balogun Market, Lagos Island &middot; <span class="tag green">&#9733; 4.7</span> <span class="tag gray">7 listings</span> <span class="tag orange">Verified</span></p>
+  </div>
+</div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 10: Reviews -->
+
+  <section id="tab10" class="tab-content view">
+    <div class="p-2">
+      <h4>Reviews</h4>
+      <p class="card card-body alert alert-secondary">
+        What shoppers across Lagos say about CUDMAZE.
+      </p>
+<div class="row g-2">
+      <div class="col-12 col-md-6"><div class="card card-body h-100">
+        <div style="color:#f5a623" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="mb-1">&ldquo;Delivered the same afternoon and exactly as pictured. The charger is fast and original.&rdquo;</p>
+        <small class="text-secondary"><strong>Chioma A.</strong> &middot; Ikeja &middot; Bought a 33W charger and power bank</small>
+      </div></div>
+      <div class="col-12 col-md-6"><div class="card card-body h-100">
+        <div style="color:#f5a623" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="mb-1">&ldquo;Light has stopped disturbing my evenings. The seller even showed me how to set it up on WhatsApp.&rdquo;</p>
+        <small class="text-secondary"><strong>Tunde B.</strong> &middot; Surulere &middot; Solar lighting kit</small>
+      </div></div>
+      <div class="col-12 col-md-6"><div class="card card-body h-100">
+        <div style="color:#f5a623" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="mb-1">&ldquo;Soft, no shedding. I ordered at night and had it by lunchtime next day.&rdquo;</p>
+        <small class="text-secondary"><strong>Ngozi E.</strong> &middot; Lekki &middot; Brazilian hair bundle</small>
+      </div></div>
+      <div class="col-12 col-md-6"><div class="card card-body h-100">
+        <div style="color:#f5a623" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="mb-1">&ldquo;Fresh, well packed and fairly priced. Saves me the Saturday traffic.&rdquo;</p>
+        <small class="text-secondary"><strong>Alhaji Musa</strong> &middot; Mile 12 &middot; Tomato &amp; pepper basket</small>
+      </div></div>
+      <div class="col-12 col-md-6"><div class="card card-body h-100">
+        <div style="color:#f5a623" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="mb-1">&ldquo;Fabric is thick and did not fade. I will order the curtains next.&rdquo;</p>
+        <small class="text-secondary"><strong>Funke O.</strong> &middot; Yaba &middot; Cotton bedsheet set</small>
+      </div></div>
+      <div class="col-12 col-md-6"><div class="card card-body h-100">
+        <div style="color:#f5a623" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="mb-1">&ldquo;Rider called before arriving and handled the package carefully. Good service.&rdquo;</p>
+        <small class="text-secondary"><strong>Emeka I.</strong> &middot; Ojota &middot; Dispatch rider delivery</small>
+      </div></div>
+</div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 11: Lagos Markets -->
+
+  <section id="tab11" class="tab-content view">
+    <div class="p-2">
+      <h4>Lagos Markets</h4>
+      <p class="card card-body alert alert-secondary">
+        Know where things come from. These are the markets our sellers trade in, now a tap away from your phone.
+      </p>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-geo-alt me-2" style="color: var(--color-primary-new)"></i>Computer Village <small class="text-secondary fw-normal">&middot; Ikeja</small></h5>
+        <p class="mb-0">Phones, laptops, accessories and repairs</p><button type="button" class="btn btn-success mt-2" data-filter="Computer Village">Shop from here</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-geo-alt me-2" style="color: var(--color-primary-new)"></i>Balogun Market <small class="text-secondary fw-normal">&middot; Lagos Island</small></h5>
+        <p class="mb-0">Ankara, lace, adire and wholesale fashion</p><button type="button" class="btn btn-success mt-2" data-filter="Balogun">Shop from here</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-geo-alt me-2" style="color: var(--color-primary-new)"></i>Idumota Market <small class="text-secondary fw-normal">&middot; Lagos Island</small></h5>
+        <p class="mb-0">General goods, electronics and wholesale supplies</p><button type="button" class="btn btn-success mt-2" data-filter="Electronics &amp; Gadgets">Shop from here</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-geo-alt me-2" style="color: var(--color-primary-new)"></i>Alaba International <small class="text-secondary fw-normal">&middot; Ojo</small></h5>
+        <p class="mb-0">Electronics, appliances and audio equipment</p><button type="button" class="btn btn-success mt-2" data-filter="Alaba International">Shop from here</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-geo-alt me-2" style="color: var(--color-primary-new)"></i>Oyingbo Market <small class="text-secondary fw-normal">&middot; Yaba</small></h5>
+        <p class="mb-0">Foodstuff, grains, oils and spices</p><button type="button" class="btn btn-success mt-2" data-filter="Oyingbo">Shop from here</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-geo-alt me-2" style="color: var(--color-primary-new)"></i>Mile 12 Market <small class="text-secondary fw-normal">&middot; Kosofe</small></h5>
+        <p class="mb-0">Fresh tomatoes, pepper, vegetables and fish</p><button type="button" class="btn btn-success mt-2" data-filter="Mile 12">Shop from here</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-geo-alt me-2" style="color: var(--color-primary-new)"></i>Tejuosho Market <small class="text-secondary fw-normal">&middot; Yaba</small></h5>
+        <p class="mb-0">Fabrics, fashion and household goods</p><button type="button" class="btn btn-success mt-2" data-filter="Tejuosho">Shop from here</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-geo-alt me-2" style="color: var(--color-primary-new)"></i>Trade Fair Complex <small class="text-secondary fw-normal">&middot; Ojo</small></h5>
+        <p class="mb-0">Wholesale goods of every kind</p><button type="button" class="btn btn-success mt-2" data-filter="Home &amp; Kitchen">Shop from here</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-geo-alt me-2" style="color: var(--color-primary-new)"></i>Ladipo Market <small class="text-secondary fw-normal">&middot; Mushin</small></h5>
+        <p class="mb-0">Auto parts, tyres and car care</p><button type="button" class="btn btn-success mt-2" data-filter="Ladipo">Shop from here</button>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-geo-alt me-2" style="color: var(--color-primary-new)"></i>Lekki Arts & Crafts Market <small class="text-secondary fw-normal">&middot; Lekki</small></h5>
+        <p class="mb-0">Art, crafts, beads and souvenirs</p><button type="button" class="btn btn-success mt-2" data-filter="Lekki Arts &amp; Crafts">Shop from here</button>
+      </div></div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 12: Hot -->
+
+  <section id="tab12" class="tab-content view">
+    <div class="p-2">
+      <h4>Hot Right Now</h4>
+      <p class="card card-body alert alert-secondary">
+        The most-ordered items in Lagos this week.
+      </p>
+<div class="view-content list-container">
+  <div class="list-item" data-open-product="fast-charger-33w" data-search-text="33W Fast Charger + Type-C Cable Original-grade fast charger with 1m braided cable. Works with most Android phones. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Phones Charging sale deal hot trending ">
+    <img class="product-thumb" src="img/products/fast-charger-33w.webp" alt="33W Fast Charger + Type-C Cable" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">33W Fast Charger + Type-C Cable</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Original-grade fast charger with 1m braided cable. Works with most Android phones.</h6>
+      <button type="button" class="btn btn-success" data-open-product="fast-charger-33w">View</button>
+    </div>
+    <div class="product-price">₦6,500 <s class="was">₦8,000</s> <span class="save">-19%</span></div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Phones</span> <span class="tag gray">#Charging</span></p>
+  </div>
+  <div class="list-item" data-open-product="power-bank-20000" data-search-text="Power Bank 20,000mAh Dual-USB power bank with LED display. Keeps your phone going through NEPA blackouts. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Power Travel  hot trending ">
+    <img class="product-thumb" src="img/products/power-bank-20000.webp" alt="Power Bank 20,000mAh" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Power Bank 20,000mAh</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Dual-USB power bank with LED display. Keeps your phone going through NEPA blackouts.</h6>
+      <button type="button" class="btn btn-success" data-open-product="power-bank-20000">View</button>
+    </div>
+    <div class="product-price">₦18,500</div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Power</span> <span class="tag orange">#Travel</span></p>
+  </div>
+  <div class="list-item" data-open-product="tokunbo-iphone-11" data-search-text="UK-Used iPhone 11 (64GB) Clean UK-used iPhone 11, tested and unlocked. 7-day shop warranty. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Phones UK-Used sale deal hot trending ">
+    <img class="product-thumb" src="img/products/tokunbo-iphone-11.webp" alt="UK-Used iPhone 11 (64GB)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">UK-Used iPhone 11 (64GB)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Clean UK-used iPhone 11, tested and unlocked. 7-day shop warranty.</h6>
+      <button type="button" class="btn btn-success" data-open-product="tokunbo-iphone-11">View</button>
+    </div>
+    <div class="product-price">₦265,000 <s class="was">₦285,000</s> <span class="save">-7%</span></div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Phones</span> <span class="tag orange">#UK-Used</span></p>
+  </div>
+  <div class="list-item" data-open-product="smart-tv-32" data-search-text="32-inch Smart TV HD smart TV with built-in Wi-Fi, YouTube and Netflix apps. Wall-mount ready. Electronics &amp; Gadgets electronics Alaba Direct Electronics Alaba International Market, Ojo product TV Home sale deal hot trending ">
+    <img class="product-thumb" src="img/products/smart-tv-32.webp" alt="32-inch Smart TV" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">32-inch Smart TV</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>HD smart TV with built-in Wi-Fi, YouTube and Netflix apps. Wall-mount ready.</h6>
+      <button type="button" class="btn btn-success" data-open-product="smart-tv-32">View</button>
+    </div>
+    <div class="product-price">₦155,000 <s class="was">₦175,000</s> <span class="save">-11%</span></div>
+    <p>Alaba Direct Electronics &middot; <span class="tag green">#TV</span> <span class="tag gray">#Home</span></p>
+  </div>
+  <div class="list-item" data-open-product="solar-lighting-kit" data-search-text="Solar Home Lighting Kit (4 Bulbs) Panel, 4 LED bulbs and phone-charging ports. No fuel, no NEPA wahala. Solar &amp; Power solar Surulere Solar Depot Adeniran Ogunsanya, Surulere product Solar Lighting sale deal hot trending ">
+    <img class="product-thumb" src="img/products/solar-lighting-kit.webp" alt="Solar Home Lighting Kit (4 Bulbs)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Solar Home Lighting Kit (4 Bulbs)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Panel, 4 LED bulbs and phone-charging ports. No fuel, no NEPA wahala.</h6>
+      <button type="button" class="btn btn-success" data-open-product="solar-lighting-kit">View</button>
+    </div>
+    <div class="product-price">₦45,000 <s class="was">₦52,000</s> <span class="save">-13%</span></div>
+    <p>Surulere Solar Depot &middot; <span class="tag green">#Solar</span> <span class="tag gray">#Lighting</span></p>
+  </div>
+  <div class="list-item" data-open-product="ankara-fabric-6-yards" data-search-text="Ankara Fabric (6 Yards) Quality wax-print Ankara, six full yards. Colourfast and soft to sew. Fashion &amp; Fabrics fashion Balogun Fabric House Balogun Market, Lagos Island product Ankara Fabric  hot trending ">
+    <img class="product-thumb" src="img/products/ankara-fabric-6-yards.webp" alt="Ankara Fabric (6 Yards)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Ankara Fabric (6 Yards)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Quality wax-print Ankara, six full yards. Colourfast and soft to sew.</h6>
+      <button type="button" class="btn btn-success" data-open-product="ankara-fabric-6-yards">View</button>
+    </div>
+    <div class="product-price">₦14,000</div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Ankara</span> <span class="tag gray">#Fabric</span></p>
+  </div>
+  <div class="list-item" data-open-product="brazilian-hair-bundle" data-search-text="Brazilian Hair Bundle Soft, tangle-free human hair bundle. Dye-able and easy to style. Beauty &amp; Hair beauty Lekki Glow Beauty Lekki Phase 1 product Hair Beauty  hot trending ">
+    <img class="product-thumb" src="img/products/brazilian-hair-bundle.webp" alt="Brazilian Hair Bundle" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Brazilian Hair Bundle</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Soft, tangle-free human hair bundle. Dye-able and easy to style.</h6>
+      <button type="button" class="btn btn-success" data-open-product="brazilian-hair-bundle">View</button>
+    </div>
+    <div class="product-price">₦45,000</div>
+    <p>Lekki Glow Beauty &middot; <span class="tag green">#Hair</span> <span class="tag gray">#Beauty</span></p>
+  </div>
+  <div class="list-item" data-open-product="ofada-rice-5kg" data-search-text="Ofada Rice (5kg) Locally grown unpolished ofada rice, stone-free and well cleaned. Foodstuff &amp; Groceries food Oyingbo Grains &amp; Oils Oyingbo Market, Yaba product Rice Local  hot trending ">
+    <img class="product-thumb" src="img/products/ofada-rice-5kg.webp" alt="Ofada Rice (5kg)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Ofada Rice (5kg)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Locally grown unpolished ofada rice, stone-free and well cleaned.</h6>
+      <button type="button" class="btn btn-success" data-open-product="ofada-rice-5kg">View</button>
+    </div>
+    <div class="product-price">₦15,500</div>
+    <p>Oyingbo Grains &amp; Oils &middot; <span class="tag green">#Rice</span> <span class="tag orange">#Local</span></p>
+  </div>
+  <div class="list-item" data-open-product="tomato-pepper-basket" data-search-text="Tomato &amp; Pepper Basket Mile 12 basket of fresh tomatoes, tatashe and rodo. Delivered same day. Foodstuff &amp; Groceries food Mile 12 Fresh Basket Mile 12 Market, Kosofe product Fresh Vegetables sale deal hot trending ">
+    <img class="product-thumb" src="img/products/tomato-pepper-basket.webp" alt="Tomato &amp; Pepper Basket" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Tomato &amp; Pepper Basket</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Mile 12 basket of fresh tomatoes, tatashe and rodo. Delivered same day.</h6>
+      <button type="button" class="btn btn-success" data-open-product="tomato-pepper-basket">View</button>
+    </div>
+    <div class="product-price">₦22,000 <s class="was">₦26,000</s> <span class="save">-15%</span></div>
+    <p>Mile 12 Fresh Basket &middot; <span class="tag green">#Fresh</span> <span class="tag gray">#Vegetables</span></p>
+  </div>
+  <div class="list-item" data-open-product="baby-diapers-60" data-search-text="Baby Diapers (Pack of 60) Soft, breathable diapers with 12-hour dryness. Baby &amp; Kids baby Ikota Kids &amp; Baby Ikota, Lekki product Baby Care sale deal hot trending ">
+    <img class="product-thumb" src="img/products/baby-diapers-60.webp" alt="Baby Diapers (Pack of 60)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Baby Diapers (Pack of 60)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Soft, breathable diapers with 12-hour dryness.</h6>
+      <button type="button" class="btn btn-success" data-open-product="baby-diapers-60">View</button>
+    </div>
+    <div class="product-price">₦14,500 <s class="was">₦16,500</s> <span class="save">-12%</span></div>
+    <p>Ikota Kids &amp; Baby &middot; <span class="tag green">#Baby</span> <span class="tag gray">#Care</span></p>
+  </div>
+  <div class="list-item" data-open-product="laundry-pickup" data-search-text="Laundry &amp; Dry-cleaning Pickup Doorstep pickup and return, 48-hour turnaround. Priced per bag. Services services CUDMAZE Express All of Lagos service Laundry Doorstep  hot trending ">
+    <img class="product-thumb" src="img/products/laundry-pickup.webp" alt="Laundry &amp; Dry-cleaning Pickup" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Laundry &amp; Dry-cleaning Pickup</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Doorstep pickup and return, 48-hour turnaround. Priced per bag.</h6>
+      <button type="button" class="btn btn-success" data-open-product="laundry-pickup">Book</button>
+    </div>
+    <div class="product-price">From ₦3,500</div>
+    <p>CUDMAZE Express &middot; <span class="tag green">#Laundry</span> <span class="tag orange">#Doorstep</span></p>
+  </div>
+  <div class="list-item" data-open-product="dispatch-rider-lagos" data-search-text="Dispatch Rider Delivery Fast bike delivery within Lagos. Track your rider on WhatsApp. Services services CUDMAZE Express All of Lagos service Delivery Same-day  hot trending ">
+    <img class="product-thumb" src="img/products/dispatch-rider-lagos.webp" alt="Dispatch Rider Delivery" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Dispatch Rider Delivery</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Fast bike delivery within Lagos. Track your rider on WhatsApp.</h6>
+      <button type="button" class="btn btn-success" data-open-product="dispatch-rider-lagos">Book</button>
+    </div>
+    <div class="product-price">From ₦2,500</div>
+    <p>CUDMAZE Express &middot; <span class="tag green">#Delivery</span> <span class="tag orange">#Same-day</span></p>
+  </div>
+</div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 13: New Arrivals -->
+
+  <section id="tab13" class="tab-content view">
+    <div class="p-2">
+      <h4>New Arrivals</h4>
+      <p class="card card-body alert alert-secondary">
+        Fresh listings from our sellers.
+      </p>
+<div class="view-content list-container">
+  <div class="list-item" data-open-product="wireless-earbuds" data-search-text="Wireless Earbuds (Bluetooth 5.3) Clear sound, touch controls and a charging case. Up to 20 hours of play time. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Audio Wireless sale deal  new arrival">
+    <img class="product-thumb" src="img/products/wireless-earbuds.webp" alt="Wireless Earbuds (Bluetooth 5.3)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Wireless Earbuds (Bluetooth 5.3)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Clear sound, touch controls and a charging case. Up to 20 hours of play time.</h6>
+      <button type="button" class="btn btn-success" data-open-product="wireless-earbuds">View</button>
+    </div>
+    <div class="product-price">₦12,000 <s class="was">₦15,000</s> <span class="save">-20%</span></div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Audio</span> <span class="tag gray">#Wireless</span></p>
+  </div>
+  <div class="list-item" data-open-product="bluetooth-speaker" data-search-text="Portable Bluetooth Speaker Loud, splash-proof speaker with 8-hour battery. Great for hangouts. Electronics &amp; Gadgets electronics Alaba Direct Electronics Alaba International Market, Ojo product Audio Portable sale deal  new arrival">
+    <img class="product-thumb" src="img/products/bluetooth-speaker.webp" alt="Portable Bluetooth Speaker" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Portable Bluetooth Speaker</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Loud, splash-proof speaker with 8-hour battery. Great for hangouts.</h6>
+      <button type="button" class="btn btn-success" data-open-product="bluetooth-speaker">View</button>
+    </div>
+    <div class="product-price">₦9,800 <s class="was">₦12,500</s> <span class="save">-22%</span></div>
+    <p>Alaba Direct Electronics &middot; <span class="tag green">#Audio</span> <span class="tag gray">#Portable</span></p>
+  </div>
+  <div class="list-item" data-open-product="rechargeable-lantern" data-search-text="Rechargeable LED Lantern Bright rechargeable lantern with USB output. Up to 12 hours per charge. Solar &amp; Power solar Surulere Solar Depot Adeniran Ogunsanya, Surulere product Lighting Backup   new arrival">
+    <img class="product-thumb" src="img/products/rechargeable-lantern.webp" alt="Rechargeable LED Lantern" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Rechargeable LED Lantern</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Bright rechargeable lantern with USB output. Up to 12 hours per charge.</h6>
+      <button type="button" class="btn btn-success" data-open-product="rechargeable-lantern">View</button>
+    </div>
+    <div class="product-price">₦7,500</div>
+    <p>Surulere Solar Depot &middot; <span class="tag green">#Lighting</span> <span class="tag gray">#Backup</span></p>
+  </div>
+  <div class="list-item" data-open-product="ankara-gown" data-search-text="Women&#x27;s Ankara Gown Fitted Ankara gown with a flattering cut. Lined and zipped. Fashion &amp; Fabrics fashion Balogun Fabric House Balogun Market, Lagos Island product Womenswear Ankara   new arrival">
+    <img class="product-thumb" src="img/products/ankara-gown.webp" alt="Women&#x27;s Ankara Gown" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Women's Ankara Gown</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Fitted Ankara gown with a flattering cut. Lined and zipped.</h6>
+      <button type="button" class="btn btn-success" data-open-product="ankara-gown">View</button>
+    </div>
+    <div class="product-price">₦28,000</div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Womenswear</span> <span class="tag gray">#Ankara</span></p>
+  </div>
+  <div class="list-item" data-open-product="arabian-oud-50ml" data-search-text="Arabian Oud Perfume Oil (50ml) Long-lasting oil-based fragrance that stays all day. Beauty &amp; Hair beauty Lekki Glow Beauty Lekki Phase 1 product Fragrance Gift sale deal  new arrival">
+    <img class="product-thumb" src="img/products/arabian-oud-50ml.webp" alt="Arabian Oud Perfume Oil (50ml)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Arabian Oud Perfume Oil (50ml)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Long-lasting oil-based fragrance that stays all day.</h6>
+      <button type="button" class="btn btn-success" data-open-product="arabian-oud-50ml">View</button>
+    </div>
+    <div class="product-price">₦8,500 <s class="was">₦10,000</s> <span class="save">-15%</span></div>
+    <p>Lekki Glow Beauty &middot; <span class="tag green">#Fragrance</span> <span class="tag orange">#Gift</span></p>
+  </div>
+  <div class="list-item" data-open-product="ground-egusi-1kg" data-search-text="Ground Egusi (1kg) Freshly ground egusi, ready for soup. Sealed and packed hygienically. Foodstuff &amp; Groceries food Oyingbo Grains &amp; Oils Oyingbo Market, Yaba product Soup Spices   new arrival">
+    <img class="product-thumb" src="img/products/ground-egusi-1kg.webp" alt="Ground Egusi (1kg)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Ground Egusi (1kg)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Freshly ground egusi, ready for soup. Sealed and packed hygienically.</h6>
+      <button type="button" class="btn btn-success" data-open-product="ground-egusi-1kg">View</button>
+    </div>
+    <div class="product-price">₦7,000</div>
+    <p>Oyingbo Grains &amp; Oils &middot; <span class="tag green">#Soup</span> <span class="tag gray">#Spices</span></p>
+  </div>
+  <div class="list-item" data-open-product="blender-1-5l" data-search-text="Blender (1.5L) Powerful blender for pepper, smoothies and soups. Glass jar. Home &amp; Kitchen home Yaba Home Essentials Tejuosho Market, Yaba product Appliance Kitchen   new arrival">
+    <img class="product-thumb" src="img/products/blender-1-5l.webp" alt="Blender (1.5L)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Blender (1.5L)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Powerful blender for pepper, smoothies and soups. Glass jar.</h6>
+      <button type="button" class="btn btn-success" data-open-product="blender-1-5l">View</button>
+    </div>
+    <div class="product-price">₦26,500</div>
+    <p>Yaba Home Essentials &middot; <span class="tag green">#Appliance</span> <span class="tag gray">#Kitchen</span></p>
+  </div>
+  <div class="list-item" data-open-product="school-bag-lunch-set" data-search-text="School Bag + Lunch Box Set Sturdy, water-resistant school bag with matching lunch box and bottle. Baby &amp; Kids baby Ikota Kids &amp; Baby Ikota, Lekki product School Kids   new arrival">
+    <img class="product-thumb" src="img/products/school-bag-lunch-set.webp" alt="School Bag + Lunch Box Set" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">School Bag + Lunch Box Set</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Sturdy, water-resistant school bag with matching lunch box and bottle.</h6>
+      <button type="button" class="btn btn-success" data-open-product="school-bag-lunch-set">View</button>
+    </div>
+    <div class="product-price">₦13,500</div>
+    <p>Ikota Kids &amp; Baby &middot; <span class="tag green">#School</span> <span class="tag gray">#Kids</span></p>
+  </div>
+  <div class="list-item" data-open-product="custom-tailoring" data-search-text="Custom Tailoring (Ankara &amp; Native) Bring your fabric or buy ours. Measurements taken by WhatsApp or in store. Services services Balogun Fabric House Balogun Market, Lagos Island service Tailoring Custom   new arrival">
+    <img class="product-thumb" src="img/products/custom-tailoring.webp" alt="Custom Tailoring (Ankara &amp; Native)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Custom Tailoring (Ankara &amp; Native)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Bring your fabric or buy ours. Measurements taken by WhatsApp or in store.</h6>
+      <button type="button" class="btn btn-success" data-open-product="custom-tailoring">Book</button>
+    </div>
+    <div class="product-price">From ₦15,000</div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Tailoring</span> <span class="tag orange">#Custom</span></p>
+  </div>
+  <div class="list-item" data-open-product="home-cleaning" data-search-text="Home &amp; Office Cleaning Deep cleaning by a trained, vetted team. Supplies included. Services services Lagos Home Pros Island &amp; Mainland service Cleaning Home   new arrival">
+    <img class="product-thumb" src="img/products/home-cleaning.webp" alt="Home &amp; Office Cleaning" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Home &amp; Office Cleaning</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Deep cleaning by a trained, vetted team. Supplies included.</h6>
+      <button type="button" class="btn btn-success" data-open-product="home-cleaning">Book</button>
+    </div>
+    <div class="product-price">From ₦25,000</div>
+    <p>Lagos Home Pros &middot; <span class="tag green">#Cleaning</span> <span class="tag gray">#Home</span></p>
+  </div>
+</div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 14: Deals -->
+
+  <section id="tab14" class="tab-content view">
+    <div class="p-2">
+      <h4>Deals</h4>
+      <p class="card card-body alert alert-secondary">
+        Price drops and limited offers. Prices change fast, so order early.
+      </p>
+<div class="view-content list-container">
+  <div class="list-item" data-open-product="fast-charger-33w" data-search-text="33W Fast Charger + Type-C Cable Original-grade fast charger with 1m braided cable. Works with most Android phones. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Phones Charging sale deal hot trending ">
+    <img class="product-thumb" src="img/products/fast-charger-33w.webp" alt="33W Fast Charger + Type-C Cable" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">33W Fast Charger + Type-C Cable</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Original-grade fast charger with 1m braided cable. Works with most Android phones.</h6>
+      <button type="button" class="btn btn-success" data-open-product="fast-charger-33w">View</button>
+    </div>
+    <div class="product-price">₦6,500 <s class="was">₦8,000</s> <span class="save">-19%</span></div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Phones</span> <span class="tag gray">#Charging</span></p>
+  </div>
+  <div class="list-item" data-open-product="wireless-earbuds" data-search-text="Wireless Earbuds (Bluetooth 5.3) Clear sound, touch controls and a charging case. Up to 20 hours of play time. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Audio Wireless sale deal  new arrival">
+    <img class="product-thumb" src="img/products/wireless-earbuds.webp" alt="Wireless Earbuds (Bluetooth 5.3)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Wireless Earbuds (Bluetooth 5.3)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Clear sound, touch controls and a charging case. Up to 20 hours of play time.</h6>
+      <button type="button" class="btn btn-success" data-open-product="wireless-earbuds">View</button>
+    </div>
+    <div class="product-price">₦12,000 <s class="was">₦15,000</s> <span class="save">-20%</span></div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Audio</span> <span class="tag gray">#Wireless</span></p>
+  </div>
+  <div class="list-item" data-open-product="tokunbo-iphone-11" data-search-text="UK-Used iPhone 11 (64GB) Clean UK-used iPhone 11, tested and unlocked. 7-day shop warranty. Phones &amp; Accessories phones Ikeja Gadget Hub Computer Village, Ikeja product Phones UK-Used sale deal hot trending ">
+    <img class="product-thumb" src="img/products/tokunbo-iphone-11.webp" alt="UK-Used iPhone 11 (64GB)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">UK-Used iPhone 11 (64GB)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Clean UK-used iPhone 11, tested and unlocked. 7-day shop warranty.</h6>
+      <button type="button" class="btn btn-success" data-open-product="tokunbo-iphone-11">View</button>
+    </div>
+    <div class="product-price">₦265,000 <s class="was">₦285,000</s> <span class="save">-7%</span></div>
+    <p>Ikeja Gadget Hub &middot; <span class="tag green">#Phones</span> <span class="tag orange">#UK-Used</span></p>
+  </div>
+  <div class="list-item" data-open-product="smart-tv-32" data-search-text="32-inch Smart TV HD smart TV with built-in Wi-Fi, YouTube and Netflix apps. Wall-mount ready. Electronics &amp; Gadgets electronics Alaba Direct Electronics Alaba International Market, Ojo product TV Home sale deal hot trending ">
+    <img class="product-thumb" src="img/products/smart-tv-32.webp" alt="32-inch Smart TV" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">32-inch Smart TV</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>HD smart TV with built-in Wi-Fi, YouTube and Netflix apps. Wall-mount ready.</h6>
+      <button type="button" class="btn btn-success" data-open-product="smart-tv-32">View</button>
+    </div>
+    <div class="product-price">₦155,000 <s class="was">₦175,000</s> <span class="save">-11%</span></div>
+    <p>Alaba Direct Electronics &middot; <span class="tag green">#TV</span> <span class="tag gray">#Home</span></p>
+  </div>
+  <div class="list-item" data-open-product="bluetooth-speaker" data-search-text="Portable Bluetooth Speaker Loud, splash-proof speaker with 8-hour battery. Great for hangouts. Electronics &amp; Gadgets electronics Alaba Direct Electronics Alaba International Market, Ojo product Audio Portable sale deal  new arrival">
+    <img class="product-thumb" src="img/products/bluetooth-speaker.webp" alt="Portable Bluetooth Speaker" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Portable Bluetooth Speaker</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Loud, splash-proof speaker with 8-hour battery. Great for hangouts.</h6>
+      <button type="button" class="btn btn-success" data-open-product="bluetooth-speaker">View</button>
+    </div>
+    <div class="product-price">₦9,800 <s class="was">₦12,500</s> <span class="save">-22%</span></div>
+    <p>Alaba Direct Electronics &middot; <span class="tag green">#Audio</span> <span class="tag gray">#Portable</span></p>
+  </div>
+  <div class="list-item" data-open-product="solar-lighting-kit" data-search-text="Solar Home Lighting Kit (4 Bulbs) Panel, 4 LED bulbs and phone-charging ports. No fuel, no NEPA wahala. Solar &amp; Power solar Surulere Solar Depot Adeniran Ogunsanya, Surulere product Solar Lighting sale deal hot trending ">
+    <img class="product-thumb" src="img/products/solar-lighting-kit.webp" alt="Solar Home Lighting Kit (4 Bulbs)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Solar Home Lighting Kit (4 Bulbs)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Panel, 4 LED bulbs and phone-charging ports. No fuel, no NEPA wahala.</h6>
+      <button type="button" class="btn btn-success" data-open-product="solar-lighting-kit">View</button>
+    </div>
+    <div class="product-price">₦45,000 <s class="was">₦52,000</s> <span class="save">-13%</span></div>
+    <p>Surulere Solar Depot &middot; <span class="tag green">#Solar</span> <span class="tag gray">#Lighting</span></p>
+  </div>
+  <div class="list-item" data-open-product="senator-wear" data-search-text="Men&#x27;s Senator Wear (Ready-made) Neatly stitched two-piece senator outfit. Ready to wear for owambe or church. Fashion &amp; Fabrics fashion Balogun Fabric House Balogun Market, Lagos Island product Menswear Native sale deal  ">
+    <img class="product-thumb" src="img/products/senator-wear.webp" alt="Men&#x27;s Senator Wear (Ready-made)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Men's Senator Wear (Ready-made)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Neatly stitched two-piece senator outfit. Ready to wear for owambe or church.</h6>
+      <button type="button" class="btn btn-success" data-open-product="senator-wear">View</button>
+    </div>
+    <div class="product-price">₦35,000 <s class="was">₦42,000</s> <span class="save">-17%</span></div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Menswear</span> <span class="tag orange">#Native</span></p>
+  </div>
+  <div class="list-item" data-open-product="ladies-handbag" data-search-text="Ladies&#x27; Handbag Roomy faux-leather handbag with zip pockets and a shoulder strap. Fashion &amp; Fabrics fashion Balogun Fabric House Balogun Market, Lagos Island product Bags Women sale deal  ">
+    <img class="product-thumb" src="img/products/ladies-handbag.webp" alt="Ladies&#x27; Handbag" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Ladies' Handbag</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Roomy faux-leather handbag with zip pockets and a shoulder strap.</h6>
+      <button type="button" class="btn btn-success" data-open-product="ladies-handbag">View</button>
+    </div>
+    <div class="product-price">₦22,000 <s class="was">₦26,000</s> <span class="save">-15%</span></div>
+    <p>Balogun Fabric House &middot; <span class="tag green">#Bags</span> <span class="tag gray">#Women</span></p>
+  </div>
+  <div class="list-item" data-open-product="arabian-oud-50ml" data-search-text="Arabian Oud Perfume Oil (50ml) Long-lasting oil-based fragrance that stays all day. Beauty &amp; Hair beauty Lekki Glow Beauty Lekki Phase 1 product Fragrance Gift sale deal  new arrival">
+    <img class="product-thumb" src="img/products/arabian-oud-50ml.webp" alt="Arabian Oud Perfume Oil (50ml)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Arabian Oud Perfume Oil (50ml)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Long-lasting oil-based fragrance that stays all day.</h6>
+      <button type="button" class="btn btn-success" data-open-product="arabian-oud-50ml">View</button>
+    </div>
+    <div class="product-price">₦8,500 <s class="was">₦10,000</s> <span class="save">-15%</span></div>
+    <p>Lekki Glow Beauty &middot; <span class="tag green">#Fragrance</span> <span class="tag orange">#Gift</span></p>
+  </div>
+  <div class="list-item" data-open-product="tomato-pepper-basket" data-search-text="Tomato &amp; Pepper Basket Mile 12 basket of fresh tomatoes, tatashe and rodo. Delivered same day. Foodstuff &amp; Groceries food Mile 12 Fresh Basket Mile 12 Market, Kosofe product Fresh Vegetables sale deal hot trending ">
+    <img class="product-thumb" src="img/products/tomato-pepper-basket.webp" alt="Tomato &amp; Pepper Basket" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Tomato &amp; Pepper Basket</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Mile 12 basket of fresh tomatoes, tatashe and rodo. Delivered same day.</h6>
+      <button type="button" class="btn btn-success" data-open-product="tomato-pepper-basket">View</button>
+    </div>
+    <div class="product-price">₦22,000 <s class="was">₦26,000</s> <span class="save">-15%</span></div>
+    <p>Mile 12 Fresh Basket &middot; <span class="tag green">#Fresh</span> <span class="tag gray">#Vegetables</span></p>
+  </div>
+  <div class="list-item" data-open-product="nonstick-pan-set-3" data-search-text="Non-stick Frying Pan Set (3pcs) Three non-stick pans in graduated sizes. Easy to clean, even heating. Home &amp; Kitchen home Yaba Home Essentials Tejuosho Market, Yaba product Cookware Kitchen sale deal  ">
+    <img class="product-thumb" src="img/products/nonstick-pan-set-3.webp" alt="Non-stick Frying Pan Set (3pcs)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Non-stick Frying Pan Set (3pcs)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Three non-stick pans in graduated sizes. Easy to clean, even heating.</h6>
+      <button type="button" class="btn btn-success" data-open-product="nonstick-pan-set-3">View</button>
+    </div>
+    <div class="product-price">₦24,000 <s class="was">₦28,000</s> <span class="save">-14%</span></div>
+    <p>Yaba Home Essentials &middot; <span class="tag green">#Cookware</span> <span class="tag gray">#Kitchen</span></p>
+  </div>
+  <div class="list-item" data-open-product="cotton-bedsheet-set" data-search-text="Cotton Bedsheet Set Soft cotton bedsheet with two pillowcases. Does not fade after washing. Home &amp; Kitchen home Yaba Home Essentials Tejuosho Market, Yaba product Bedding Home sale deal  ">
+    <img class="product-thumb" src="img/products/cotton-bedsheet-set.webp" alt="Cotton Bedsheet Set" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Cotton Bedsheet Set</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Soft cotton bedsheet with two pillowcases. Does not fade after washing.</h6>
+      <button type="button" class="btn btn-success" data-open-product="cotton-bedsheet-set">View</button>
+    </div>
+    <div class="product-price">₦18,500 <s class="was">₦22,000</s> <span class="save">-16%</span></div>
+    <p>Yaba Home Essentials &middot; <span class="tag green">#Bedding</span> <span class="tag gray">#Home</span></p>
+  </div>
+  <div class="list-item" data-open-product="baby-diapers-60" data-search-text="Baby Diapers (Pack of 60) Soft, breathable diapers with 12-hour dryness. Baby &amp; Kids baby Ikota Kids &amp; Baby Ikota, Lekki product Baby Care sale deal hot trending ">
+    <img class="product-thumb" src="img/products/baby-diapers-60.webp" alt="Baby Diapers (Pack of 60)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">Baby Diapers (Pack of 60)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Soft, breathable diapers with 12-hour dryness.</h6>
+      <button type="button" class="btn btn-success" data-open-product="baby-diapers-60">View</button>
+    </div>
+    <div class="product-price">₦14,500 <s class="was">₦16,500</s> <span class="save">-12%</span></div>
+    <p>Ikota Kids &amp; Baby &middot; <span class="tag green">#Baby</span> <span class="tag gray">#Care</span></p>
+  </div>
+  <div class="list-item" data-open-product="led-bulb-pack-10" data-search-text="LED Bulb Pack (10 × 12W) Energy-saving 12W bulbs. Cuts your light bill, lasts for years. Building &amp; Hardware hardware Surulere Solar Depot Adeniran Ogunsanya, Surulere product Lighting Home sale deal  ">
+    <img class="product-thumb" src="img/products/led-bulb-pack-10.webp" alt="LED Bulb Pack (10 × 12W)" width="600" height="340" loading="lazy" decoding="async" />
+    <div class="item-icon">LED Bulb Pack (10 × 12W)</div>
+    <div class="item-content d-flex justify-content-between align-items-center">
+      <h6>Energy-saving 12W bulbs. Cuts your light bill, lasts for years.</h6>
+      <button type="button" class="btn btn-success" data-open-product="led-bulb-pack-10">View</button>
+    </div>
+    <div class="product-price">₦9,000 <s class="was">₦10,500</s> <span class="save">-14%</span></div>
+    <p>Surulere Solar Depot &middot; <span class="tag green">#Lighting</span> <span class="tag gray">#Home</span></p>
+  </div>
+</div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 15: Updates -->
+
+  <section id="tab15" class="tab-content view">
+    <div class="view-header">
+      <h1 class="view-title">Shop Updates</h1>
+    </div>
+<div class="view-content">
+<div class="card mb-2"><div class="card-header"><h4>Welcome to CUDMAZE</h4></div><div class="card-content"><p>Browse, compare and order on WhatsApp, no account needed. Create one only if you want a saved cart.</p></div></div>
+<div class="card mb-2"><div class="card-header"><h4>More sellers joining every week</h4></div><div class="card-content"><p>Fashion, food and electronics vendors from Balogun to Computer Village are opening stores here.</p></div></div>
+<div class="card mb-2"><div class="card-header"><h4>Pay only after we confirm</h4></div><div class="card-content"><p>Always confirm availability, price and delivery fee on WhatsApp before you pay. Never pay into an account you did not get from us.</p></div></div>
+</div>
+
+  </section>
+
+  <!-- TAB 16: Request an Item -->
+
+  <section id="tab16" class="tab-content view">
+    <div class="p-2">
+      <h4>Request an Item</h4>
+      <p class="card card-body alert alert-secondary">
+        Can&rsquo;t find it in the shop? Tell us what you need and we&rsquo;ll find a trusted seller and send you a price.
+      </p>
+      <form id="requestForm" data-wa-request novalidate>
+        <div class="mb-3"><label for="reqItem" class="form-label">What are you looking for?</label>
+          <input type="text" class="form-control" id="reqItem" required placeholder="e.g. 43-inch Hisense TV, size 42 Nike sneakers" /></div>
+        <div class="mb-3"><label for="reqBudget" class="form-label">Budget (optional)</label>
+          <input type="text" class="form-control" id="reqBudget" inputmode="numeric" placeholder="e.g. 250000" /></div>
+        <div class="mb-3"><label for="reqNotes" class="form-label">Details (optional)</label>
+          <textarea class="form-control" id="reqNotes" rows="3" placeholder="Brand, colour, size, delivery area..."></textarea></div>
+        <div class="text-danger small mb-2" id="reqError" role="alert" hidden></div>
+        <button type="submit" class="btn btn-whatsapp w-100"><i class="bi bi-whatsapp" aria-hidden="true"></i> Send Request on WhatsApp</button>
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 17: Payments -->
+
+  <section id="tab17" class="tab-content view">
+    <div class="p-2">
+      <h4>Payments</h4>
+      <p class="card card-body alert alert-secondary">
+        Pay in the way that suits you. We confirm everything with you first.
+      </p>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-bank me-2" style="color: var(--color-primary-new)"></i>Bank transfer</h5>
+        <p class="mb-0">Pay by transfer to the account details we send you on WhatsApp. Send us your receipt and we release your order.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-cash me-2" style="color: var(--color-primary-new)"></i>Pay on delivery</h5>
+        <p class="mb-0">Available for selected items within Lagos. Ask when you order.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-credit-card me-2" style="color: var(--color-primary-new)"></i>POS on delivery</h5>
+        <p class="mb-0">Need to pay by card? Ask for a POS-enabled rider when you place your order.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-shield-check me-2" style="color: var(--color-primary-new)"></i>Stay safe</h5>
+        <p class="mb-0">We never ask for your card PIN, OTP or password. Only pay into account details shared in your CUDMAZE WhatsApp chat.</p>
+      </div></div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 18: Returns -->
+
+  <section id="tab18" class="tab-content view">
+    <div class="p-2">
+      <h4>Returns</h4>
+      <p class="card card-body alert alert-secondary">
+        Simple, fair returns on goods and services.
+      </p>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-box-seam me-2" style="color: var(--color-primary-new)"></i>Check on delivery</h5>
+        <p class="mb-0">Open and inspect your item with the rider present before you accept or pay.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-clock-history me-2" style="color: var(--color-primary-new)"></i>Report problems within 48 hours</h5>
+        <p class="mb-0">Wrong item, damaged or faulty? Message us on WhatsApp with photos within 48 hours of delivery.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-arrow-repeat me-2" style="color: var(--color-primary-new)"></i>Refunds and swaps</h5>
+        <p class="mb-0">Faulty or wrongly supplied items are swapped or refunded. Fresh foods, innerwear and used personal-care items cannot be returned.</p>
+      </div></div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 19: FAQs -->
+
+  <section id="tab19" class="tab-content view">
+    <div class="p-2">
+      <h4>FAQs</h4>
+      <p class="card card-body alert alert-secondary">
+        Quick answers to common questions.
+      </p>
+<div class="accordion mb-2" id="faqAcc">
+  <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq0" aria-expanded="false" aria-controls="faq0">Do I need an account to order?</button></h2>
+    <div id="faq0" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. Open any item and tap Buy on WhatsApp. An account only gives you a saved cart.</div></div></div>
+  <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">How do I pay?</button></h2>
+    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">After we confirm availability and delivery fee on WhatsApp you pay by bank transfer, or choose pay-on-delivery where offered.</div></div></div>
+  <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">Do you deliver outside Lagos?</button></h2>
+    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. We send by park or courier to other states in 2 to 5 days. The fee is quoted on WhatsApp.</div></div></div>
+  <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Can I negotiate the price?</button></h2>
+    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">You can add a note when you order, for example a bulk-price request. The seller replies on WhatsApp.</div></div></div>
+  <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">Are the sellers verified?</button></h2>
+    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Sellers marked Verified have been checked by our team. Always confirm details on WhatsApp before you pay.</div></div></div>
+  <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">How do I become a seller?</button></h2>
+    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Open Sell With Us and send us your details on WhatsApp.</div></div></div>
+</div>
+
+    </div>
+
+  </section>
+
+  <!-- TAB 20: About Us -->
+
+  <section id="tab20" class="tab-content view">
+    <div class="p-2">
+      <h4>About Us</h4>
+      <p class="card card-body alert alert-secondary">
+        The marketplace for everything Lagos needs.
+      </p>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-shop me-2" style="color: var(--color-primary-new)"></i>Who we are</h5>
+        <p class="mb-0">CUDMAZE is a Lagos online marketplace that connects shoppers with trusted sellers of products and services, from market-fresh foodstuff to phones, fashion, solar and home services.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-heart me-2" style="color: var(--color-primary-new)"></i>Our promise</h5>
+        <p class="mb-0">Honest listings, clear prices and real people on WhatsApp ready to help from order to delivery.</p>
+      </div></div>
+      <div class="card mb-2"><div class="card-body">
+        <h5 class="fw-bold mb-1"><i class="bi bi-building me-2" style="color: var(--color-primary-new)"></i>Part of CUDFIRM INC.</h5>
+        <p class="mb-0">CUDMAZE is built and run by CUDFIRM INC., a Lagos web design and technology company.</p>
+      </div></div>
+<button type="button" class="btn btn-primary mt-2" data-tab="connect-content"><i class="bi bi-chat-dots" aria-hidden="true"></i> Contact Us</button>
+    </div>
+
+  </section>
+
+  <!-- TODAY CONTENT -->
+
+  <section id="blog-content" class="view tab-content p-4 p-sm-5">
+    <div class="view-header">
+      <h1 class="view-title">Today at CUDMAZE</h1>
+      <div class="header-actions d-flex flex-wrap justify-content-evenly align-items-baseline">
+        <button type="button" class="btn btn-primary" data-tab="tab13"><i class="bi bi-plus-circle-fill" aria-hidden="true"></i> New Arrivals</button>
+        <button type="button" class="btn btn-primary" data-tab="tab14"><i class="bi bi-plus-circle-fill" aria-hidden="true"></i> Deals</button>
+        <button type="button" class="btn btn-primary" data-filter="Phones &amp; Accessories"><i class="bi bi-plus-circle-fill" aria-hidden="true"></i> Phones</button>
+        <button type="button" class="btn btn-primary" data-filter="Fashion &amp; Fabrics"><i class="bi bi-plus-circle-fill" aria-hidden="true"></i> Fashion</button>
+        <button type="button" class="btn btn-primary" data-filter="Foodstuff &amp; Groceries"><i class="bi bi-plus-circle-fill" aria-hidden="true"></i> Food</button>
+        <button type="button" class="btn btn-primary" data-filter="Services"><i class="bi bi-plus-circle-fill" aria-hidden="true"></i> Services</button>
+      
+      </div>
+    </div>
+    <div class="view-content">
+      <div class="grid-container">
+
+
+    <div class="card stat-card">
+      <div class="card-icon stat-icon-courses">
+        <i class="bi bi-bag-check-fill"></i>
+      </div>
+      <div class="card-content">
+        <h3>10 New Today</h3>
+        <p>Fresh listings added across the shop.</p>
+      </div>
+    </div>
+
+    <div class="card stat-card">
+      <div class="card-icon stat-icon-providers">
+        <i class="bi bi-shop"></i>
+      </div>
+      <div class="card-content">
+        <h3>13 Verified Stores</h3>
+        <p>Trusted Lagos sellers and service pros.</p>
+      </div>
+    </div>
+
+    <div class="card stat-card">
+      <div class="card-icon stat-icon-gigs">
+        <i class="bi bi-box-seam-fill"></i>
+      </div>
+      <div class="card-content">
+        <h3>52 Listings</h3>
+        <p>Products and services you can order today.</p>
+      </div>
+    </div>
+
+    <!-- Live Online Indicator Widget -->
+    <div class="card stat-card live-indicator-card">
+      <div class="card-icon stat-icon-live">
+        <i class="bi bi-broadcast"></i>
+      </div>
+      <div class="card-content">
+        <h3 id="liveUserCount">— Online</h3>
+        <p>Shoppers browsing right now <span class="live-dot"></span></p>
+      </div>
+    </div>
+
+    <div class="card full-width">
+      <div class="card-header">
+        <h2>Quick Actions</h2>
+      </div>
+      <div class="card-content quick-actions">
+        <button class="action-item" onclick="openTab(event, 'tab2')">
+          <i class="bi bi-grid"></i><span>Categories</span>
+        </button>
+        <button class="action-item" onclick="openTab(event, 'tab3')">
+          <i class="bi bi-bag"></i><span>Shop All</span>
+        </button>
+        <button class="action-item" onclick="openTab(event, 'tab14')">
+          <i class="bi bi-tags"></i><span>Latest Deals</span>
+        </button>
+        <button class="action-item" onclick="openTab(event, 'tab6')">
+          <i class="bi bi-question-circle"></i><span>How It Works</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  </section>
+
+  <!-- EXPLORE CONTENT (Stores) -->
+
+  <section id="explore-content" class="tab-content view">
+    <div class="explore-search-bar">
+      <div class="explore-search-inner">
+        <div class="position-relative flex-grow-1">
+          <i class="fa fa-search position-absolute text-secondary" style="left: 12px; top: 50%; transform: translateY(-50%)"></i>
+          <input type="text" class="view-search form-control ps-5" data-target-list="#explore-list" placeholder="Search stores..." />
+        </div>
+        <button id="disclaimer-toggle-btn" class="d-lg-none btn btn-light flex-shrink-0">Safety</button>
+      </div>
+    </div>
+    <div id="main-content-wrapper" class="row gx-lg-5 p-3 p-sm-4">
+      <div class="col-lg-8 col-xl-9">
+        <div id="service-grid" class="row row-cols-2 row-cols-sm-3 row-cols-lg-3 row-cols-xl-4 g-3 g-md-4"></div>
+      </div>
+      <aside class="d-none d-lg-block col-lg-4 col-xl-3">
+        <div id="disclaimer-content-desktop" class="bg-white p-4 rounded-3 shadow-sm sticky-top" style="top: 80px">
+          <h3 class="h5 fw-bold text-primary border-bottom pb-2 mb-3">Shop Safe</h3>
+          <div class="disclaimer-text">
+            <p><strong>BEFORE YOU PAY:</strong> confirm the item, price and delivery fee on WhatsApp. Only pay into account details shared in your CUDMAZE chat.</p>
+            <p>Inspect your item with the rider present before accepting it, and report any problem within 48 hours.</p>
+            <p><span class="text-danger fw-semibold">&reg;</span> marks stores that CUDMAZE has verified.</p>
+          </div>
+
+        <!-- Old service search kept for explore tab compatibility -->
+          <div class="position-relative mt-3">
+            <i class="bi bi-search position-absolute text-secondary" style="left:10px;top:50%;transform:translateY(-50%)"></i>
+            <input type="text" id="serviceSearchInput" placeholder="Search stores..." class="form-control ps-5" />
+            <button id="clearServiceSearchBtn" class="btn-close position-absolute end-0 top-50 translate-middle-y me-2 d-none"></button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- OFFERS CONTENT -->
+
+  <section id="forum-content" class="tab-content view p-1 m-0">
+    <div class="stories mt-0 mr-0 mb-2 ml-0 rounded-2">
+      <div class="_story scroll-container d-flex overflow-auto p-0 m-0" style="white-space: nowrap">
+        <div class="s-card0 _myStory sticky-card" id="stcard">
+          <span class="s-name"></span>
+        </div>
+        <div class="s-card" data-filter="Ikeja Gadget Hub" role="button" tabindex="0">
+          <img src="img/stores/ikeja-gadget-hub.webp" alt="Ikeja Gadget Hub" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">IKEJA GADGET</span></div>
+        </div>
+        <div class="s-card" data-filter="Balogun Fabric House" role="button" tabindex="0">
+          <img src="img/stores/balogun-fabric-house.webp" alt="Balogun Fabric House" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">BALOGUN FABRIC</span></div>
+        </div>
+        <div class="s-card" data-filter="Mile 12 Fresh Basket" role="button" tabindex="0">
+          <img src="img/stores/mile12-fresh-basket.webp" alt="Mile 12 Fresh Basket" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">MILE 12</span></div>
+        </div>
+        <div class="s-card" data-filter="Oyingbo Grains &amp; Oils" role="button" tabindex="0">
+          <img src="img/stores/oyingbo-grains-and-oils.webp" alt="Oyingbo Grains &amp; Oils" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">OYINGBO GRAINS</span></div>
+        </div>
+        <div class="s-card" data-filter="Surulere Solar Depot" role="button" tabindex="0">
+          <img src="img/stores/surulere-solar-depot.webp" alt="Surulere Solar Depot" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">SURULERE SOLAR</span></div>
+        </div>
+        <div class="s-card" data-filter="Lekki Glow Beauty" role="button" tabindex="0">
+          <img src="img/stores/lekki-glow-beauty.webp" alt="Lekki Glow Beauty" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">LEKKI GLOW</span></div>
+        </div>
+        <div class="s-card" data-filter="Yaba Home Essentials" role="button" tabindex="0">
+          <img src="img/stores/yaba-home-essentials.webp" alt="Yaba Home Essentials" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">YABA HOME</span></div>
+        </div>
+        <div class="s-card" data-filter="Alaba Direct Electronics" role="button" tabindex="0">
+          <img src="img/stores/alaba-direct-electronics.webp" alt="Alaba Direct Electronics" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">ALABA DIRECT</span></div>
+        </div>
+        <div class="s-card" data-filter="Ikota Kids &amp; Baby" role="button" tabindex="0">
+          <img src="img/stores/ikota-kids-and-baby.webp" alt="Ikota Kids &amp; Baby" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">IKOTA KIDS</span></div>
+        </div>
+        <div class="s-card" data-filter="Ladipo Auto Spares" role="button" tabindex="0">
+          <img src="img/stores/ladipo-auto-spares.webp" alt="Ladipo Auto Spares" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">LADIPO AUTO</span></div>
+        </div>
+        <div class="s-card" data-filter="Maryland Care Pharmacy" role="button" tabindex="0">
+          <img src="img/stores/maryland-care-pharmacy.webp" alt="Maryland Care Pharmacy" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">MARYLAND CARE</span></div>
+        </div>
+        <div class="s-card" data-filter="CUDMAZE Express" role="button" tabindex="0">
+          <img src="img/stores/cudmaze-express.webp" alt="CUDMAZE Express" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">CUDMAZE EXPRESS</span></div>
+        </div>
+        <div class="s-card" data-filter="Lagos Home Pros" role="button" tabindex="0">
+          <img src="img/stores/lagos-home-pros.webp" alt="Lagos Home Pros" width="400" height="400" loading="lazy" decoding="async"/>
+          <div class="s-name"><span class="badge text-bg-info">LAGOS HOME</span></div>
+        </div>
+      </div>
+    </div>
+    <hr class="my-2" />
+
+<!-- OFFERS BANNER -->
+    <div class="bbgpc whitenho contact">
+
+<!-- OFFERS HERO BANNER -->
+<div class="forum-hero-banner">
+  <img
+    src="img/banner.webp" width="1200" height="450"
+    alt="CUDMAZE Offers"
+    class="forum-hero-img"
+  />
+  <div class="forum-hero-overlay">
+    <div class="forum-hero-text">
+      <span class="forum-hero-eyebrow">Welcome to</span>
+      <h2 class="forum-hero-title">CUDMAZE Offers</h2>
+      <p class="forum-hero-sub">Shop &middot; Compare &middot; Chat to Buy</p>
+    </div>
+    <div class="forum-hero-pills">
+      <span class="forum-pill"><i class="bi bi-fire"></i> Trending</span>
+      <span class="forum-pill"><i class="bi bi-shop"></i> 13 Stores</span>
+      <span class="forum-pill"><i class="bi bi-whatsapp"></i> Order on WhatsApp</span>
+    </div>
+  </div>
+  <div class="forum-hero-shimmer"></div>
+</div>
+<hr class="my-2" />
+
+</div>
+    <hr class="my-2" />
+
+    <div class="row icon-grid row-cols-4 row-cols-sm-7 row-cols-md-9 row-cols-lg-10 whitenho contact bbgpc display-flex justify-content-center align-items-center">
+      <div class="col icon-item" data-filter="Phones &amp; Accessories" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-phone"></i></div>
+        <div class="icon-label">Phones</div>
+      </div>
+      <div class="col icon-item" data-filter="Fashion &amp; Fabrics" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-handbag"></i></div>
+        <div class="icon-label">Fashion</div>
+      </div>
+      <div class="col icon-item" data-filter="Foodstuff &amp; Groceries" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-basket2"></i></div>
+        <div class="icon-label">Food</div>
+      </div>
+      <div class="col icon-item" data-filter="Beauty &amp; Hair" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-stars"></i></div>
+        <div class="icon-label">Beauty</div>
+      </div>
+      <div class="col icon-item" data-filter="Home &amp; Kitchen" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-house-door"></i></div>
+        <div class="icon-label">Home</div>
+      </div>
+      <div class="col icon-item" data-filter="Electronics &amp; Gadgets" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-headphones"></i></div>
+        <div class="icon-label">Gadgets</div>
+      </div>
+      <div class="col icon-item" data-filter="Solar &amp; Power" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-sun"></i></div>
+        <div class="icon-label">Solar</div>
+      </div>
+      <div class="col icon-item" data-filter="Health &amp; Pharmacy" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-capsule"></i></div>
+        <div class="icon-label">Health</div>
+      </div>
+      <div class="col icon-item" data-filter="Baby &amp; Kids" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-emoji-smile"></i></div>
+        <div class="icon-label">Baby</div>
+      </div>
+      <div class="col icon-item" data-filter="Auto Parts &amp; Care" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-car-front"></i></div>
+        <div class="icon-label">Auto</div>
+      </div>
+      <div class="col icon-item" data-filter="Building &amp; Hardware" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-tools"></i></div>
+        <div class="icon-label">Hardware</div>
+      </div>
+      <div class="col icon-item" data-filter="laundry" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-droplet"></i></div>
+        <div class="icon-label">Laundry</div>
+      </div>
+      <div class="col icon-item" data-filter="repair" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-wrench"></i></div>
+        <div class="icon-label">Repairs</div>
+      </div>
+      <div class="col icon-item" data-filter="dispatch" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-truck"></i></div>
+        <div class="icon-label">Delivery</div>
+      </div>
+      <div class="col icon-item" data-filter="deals" role="button" tabindex="0">
+        <div class="icon-box"><i class="bi bi-tag"></i></div>
+        <div class="icon-label">Deals</div>
+      </div>
+    </div>
+    <hr class="my-2" />
+    <footer class="footin" id="footin">
+      <div class="icons-social">
+        <article class="list-social" id="sm">
+          <span class="icons-social__item"><a class="icons-social__link" href="https://wa.me/2348028699824" aria-label="WhatsApp"><i class="icons-social__i fab fa-whatsapp"></i></a></span>
+          <span class="icons-social__item"><a class="icons-social__link" href="#"><i class="icons-social__i fab fa-instagram"></i></a></span>
+                                      </article>
+      </div>
+    </footer>
+  </section>
+
+  <!-- CONNECT CONTENT -->
+
+  <section id="connect-content" class="tab-content view p-4 p-sm-5">
+    <h6 class="sticky-top">
+      <span class="badge text-bg-primary">Connect</span>
+    </h6>
+    <hr class="my-2 w-25" />
+    <div class="contact-container">
+      <h4 class="contact-header">Need help with an order?</h4>
+      <p class="contact-subheader text-center">
+        Ask about an item, a delivery or a price. Our team in Lagos replies fast on WhatsApp.</p>
+      <div class="row g-4">
+        <div class="col-12 col-lg-8">
+<form id="contactForm" onsubmit="handleEmailSubmit(event)">
+  <div class="mb-3">
+    <label for="contactName" class="form-label">Your Name</label>
+    <input type="text" class="form-control" id="contactName" name="name" required />
+  </div>
+  <div class="mb-3">
+    <label for="contactInfo" class="form-label">Your Email or Phone Number</label>
+    <input type="text" class="form-control" id="contactInfo" name="contact_info" required />
+  </div>
+  <div class="mb-3">
+    <label for="contactMessage" class="form-label">How can we help?</label>
+    <textarea class="form-control" id="contactMessage" name="message" rows="5" required></textarea>
+  </div>
+<div class="d-flex flex-column gap-2">
+    <div class="d-flex gap-2">
+        <button type="button" class="btn btn-primary w-100" onclick="sendToAdmin()">
+            <i class="bi bi-send-check"></i> Send Message
+        </button>
+        <button type="button" class="btn btn-whatsapp w-100" onclick="sendToWhatsAppWithForm()">
+            <i class="bi bi-whatsapp"></i> Send To WhatsApp
+        </button>
+    </div>
+    <button type="button" class="btn btn-info w-100" onclick="sendToEmail()">
+        <i class="bi bi-envelope"></i> Send To Email
+    </button>
+</div>
+</form>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="quick-contact-box">
+            <h5>Quick Contact</h5>
+            <p>For immediate assistance.</p>
+            <a href="tel:+2349056317709" class="btn btn-warning w-100"><i class="bi bi-telephone"></i> Call Us Directly</a>
+            <!-- Copy phone number -->
+            <button class="btn btn-outline-secondary w-100 mt-2" onclick="copyToClipboard('+2349056317709', 'Phone number copied!')">
+              <i class="bi bi-clipboard"></i> Copy Number
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footin" id="footin">
+      <div class="icons-social">
+        <article class="list-social" id="sm">
+          <span class="icons-social__item"><a class="icons-social__link" href="https://wa.me/2348028699824" aria-label="WhatsApp"><i class="icons-social__i fab fa-whatsapp"></i></a></span>
+          <span class="icons-social__item"><a class="icons-social__link" href="#"><i class="icons-social__i fab fa-instagram"></i></a></span>
+                                      </article>
+      </div>
+    </footer>
+  </section>
+
+</main>
+
+<!-- Back to Top Button -->
+
+<button id="backToTopBtn" class="back-to-top" aria-label="Back to top" title="Back to top">
+  <i class="bi bi-arrow-up-short"></i>
+</button>
+
+  </div>
+
+  <!-- ===== FOOTER NAV ===== -->
+
+  <nav class="footer-nav">
+    <div class="nav-item" onclick="openTab(event, 'blog-content')" data-index="0">
+      <i class="bi bi-lightning-charge"></i>
+      <span class="nav-label">Today</span>
+    </div>
+    <div class="nav-item" onclick="openTab(event, 'explore-content')" data-index="1">
+      <i class="bi bi-shop"></i>
+      <span class="nav-label">Stores</span>
+    </div>
+    <div class="nav-item" onclick="openTab(event, 'tab1')" data-index="2">
+      <i class="bi bi-house"></i>
+      <span class="nav-label">Home</span>
+    </div>
+    <div class="nav-item" onclick="openTab(event, 'forum-content')" data-index="3">
+      <i class="bi bi-tags"></i>
+      <span class="nav-label">Offers</span>
+    </div>
+    <div class="nav-item" onclick="openTab(event, 'connect-content')" data-index="4">
+      <i class="bi bi-chat-dots"></i>
+      <span class="nav-label">Contact</span>
+    </div>
+  </nav>
+
+  <!-- ===== SIDEBAR RIGHT ===== -->
+
+  <div class="sidebar-right row view">
+    <!-- Live Online Count Widget -->
+    <div class="widget col custom-slate-gradient d-flex flex-column align-items-center justify-content-center gap-1">
+      <span class="live-dot"></span>
+      <strong id="sidebarLiveCount">—</strong>
+      <small style="font-size:10px;color:#fff;">Online Now</small>
+    </div>
+    <div class="widget col custom-slate-gradient">Verified Sellers</div>
+    <div class="widget col custom-slate-gradient">Order on WhatsApp</div>
+  </div>
+
+</div>
+
+<!-- ===== CUSTOM MODAL ===== -->
+
+<div id="modal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close"><i class="bi bi-x-lg"></i></button>
+    <h2 id="modalTitle">Modal Title</h2>
+    <div id="modalBody">
+      <p>This is the modal content.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER MODAL ===== -->
+
+<div id="disclaimer-modal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title h5 fw-bold text-primary">Shop Safe</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body disclaimer-text">
+        <p><strong>BEFORE YOU PAY:</strong> confirm the item, price and delivery fee on WhatsApp. Only pay into account details shared in your CUDMAZE chat.</p>
+        <p>Inspect your item with the rider present before accepting it, and report any problem within 48 hours.</p>
+        <p><span class="text-danger fw-semibold">&reg;</span> marks stores that CUDMAZE has verified.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= MODAL FUNCTION ====== -->
+
+<div id="imageLightbox" class="lightbox-overlay" onclick="closeLightboxOutside(event)">
+    <div class="lightbox-content-wrapper">
+        <img class="lightbox-img" id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Preview" />
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+        <div class="lightbox-actions">
+            <button class="btn-capsule btn-close-capsule" onclick="closeLightbox()">Close</button>
+            <a id="lightboxEnterBtn" href="#" class="btn-capsule btn-enter-capsule">Enter</a>
+        </div>
+    </div>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+
+<!-- ===== PRODUCT MODAL ===== -->
+<div id="productModal" class="pm-overlay" aria-hidden="true">
+  <div class="pm-dialog" role="dialog" aria-modal="true" aria-labelledby="pmName" aria-describedby="pmDesc" tabindex="-1">
+    <button type="button" class="pm-close" id="pmClose" data-close aria-label="Close product details"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    <div class="pm-scroll">
+      <img id="pmImage" class="pm-image" src="img/logo.webp" alt="" width="1000" height="1000" decoding="async" />
+      <h2 id="pmName"></h2>
+      <p id="pmPrice" class="pm-price"></p>
+      <p id="pmDesc" class="pm-desc"></p>
+      <div id="pmTags"></div>
+      <div id="pmVariations"></div>
+      <div class="pm-row" id="pmQtyRow">
+        <label for="pmQty">Quantity</label>
+        <div class="pm-qty">
+          <button type="button" id="pmMinus" aria-label="Decrease quantity">&minus;</button>
+          <input id="pmQty" type="number" inputmode="numeric" min="1" max="99" value="1" />
+          <button type="button" id="pmPlus" aria-label="Increase quantity">+</button>
+        </div>
+      </div>
+      <div class="pm-field">
+        <label for="pmMessage">Message <span>(optional)</span></label>
+        <textarea id="pmMessage" rows="3" maxlength="500" placeholder="Negotiation, customisation, availability or any question&hellip;"></textarea>
+      </div>
+      <div class="pm-error" id="pmError" role="alert" hidden></div>
+    </div>
+    <div class="pm-actions">
+      <button type="button" id="pmBuy" class="btn btn-whatsapp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Purchase on WhatsApp</button>
+      <button type="button" id="pmCart" class="btn btn-outline-success" hidden><i class="bi bi-bag-plus" aria-hidden="true"></i> Add to Cart</button>
+      <button type="button" id="pmSignin" class="btn btn-link pm-signin" hidden>Sign in to save items in a cart</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ACCOUNT / CART MODALS ===== -->
+<div id="authModal" class="pm-overlay" aria-hidden="true">
+  <div class="pm-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle" tabindex="-1">
+    <button type="button" class="pm-close" data-close aria-label="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    <div class="pm-scroll" id="authBody"></div>
+  </div>
+</div>
+<div id="accountModal" class="pm-overlay" aria-hidden="true">
+  <div class="pm-dialog" role="dialog" aria-modal="true" aria-labelledby="accountTitle" tabindex="-1">
+    <button type="button" class="pm-close" data-close aria-label="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    <div class="pm-scroll" id="accountBody"></div>
+  </div>
+</div>
+<div id="cartModal" class="pm-overlay" aria-hidden="true">
+  <div class="pm-dialog" role="dialog" aria-modal="true" aria-labelledby="cartTitle" tabindex="-1">
+    <button type="button" class="pm-close" data-close aria-label="Close cart"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    <div class="pm-scroll" id="cartBody"></div>
+    <div class="pm-actions" id="cartActions"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/script.js" defer></script>
+<script src="js/market.js" defer></script>
+
+  </body>
+</html>

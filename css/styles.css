@@ -2405,3 +2405,20 @@ h2[class*="custom-text"], .custom-text-primary, .custom-text-dark { color: var(-
 [data-theme="light"] .tab-button.active { background: linear-gradient(180deg,#3f7d68,#255347); color: #f4faee; border: 1px solid rgba(255,255,255,.35); border-left: .31rem solid #b6d19a; font-weight: 800; box-shadow: 0 6px 14px -6px rgba(18,55,47,.6); }
 [data-theme="light"] .tab-button:hover:not(.active) { background: #dfeadb; }
 [data-theme="light"] .tab-button.active, [data-theme="light"] .tab-button.active * { color: #f4faee !important; }
+
+/* ---- tablets, laptops and large screens: cards sit side by side on these pages ---- */
+@media (min-width: 768px) {
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 1rem; align-items: stretch; }
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > h4,
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > p.alert,
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > .sub-h,
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > .table-responsive,
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > .accordion,
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > .row,
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > .btn { grid-column: 1 / -1; }
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > .btn { justify-self: start; margin: 0 !important; }
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > .card.mb-2,
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > .card.card-body { margin: 0 !important; }
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > .sub-h { margin: .6rem .25rem 0; }
+  :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > p.alert, :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > h4 { margin-bottom: 0 !important; }
+}

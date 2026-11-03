@@ -485,7 +485,7 @@ function initDarkMode() {
     const icon = document.getElementById('darkModeIcon');
     const html = document.documentElement;
     try {
-        if (localStorage.getItem('cudfirm_theme') !== 'light') {
+        if (localStorage.getItem('cudfirm_theme') === 'dark') {
             html.setAttribute('data-theme', 'dark');
             if (icon) icon.className = 'bi bi-sun-fill';
         }

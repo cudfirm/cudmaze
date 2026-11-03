@@ -296,7 +296,7 @@
     state.cart.forEach(function (it, idx) {
       var pr = priceOf(it.price);
       list.appendChild(el('li', { class: 'cart-item' }, [
-        el('img', { src: it.image || DEFAULT_IMAGE, alt: '', width: 600, height: 340, loading: 'lazy' }),
+        el('img', { src: it.image || DEFAULT_IMAGE, alt: '', width: 600, height: 240, loading: 'lazy' }),
         el('div', { class: 'cart-info' }, [
           el('div', { class: 'cart-name', text: it.name }),
           it.variation ? el('div', { class: 'cart-var', text: it.variation }) : null,
@@ -549,6 +549,14 @@
       if (t) { e.preventDefault(); goTab(t.getAttribute('data-tab')); return; }
       var o = e.target.closest('[data-open-product]');
       if (o) { e.preventDefault(); openProduct(o.getAttribute('data-open-product')); return; }
+      var sg = e.target.closest('[data-seg]');
+      if (sg) {
+        sg.parentElement.querySelectorAll('[data-seg]').forEach(function (b) {
+          var on = b === sg; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
+          var pane = $(b.getAttribute('data-seg')); if (pane) pane.hidden = !on;
+        });
+        return;
+      }
       var w = e.target.closest('[data-wa]');
       if (w) { e.preventDefault(); openWhatsApp(w.getAttribute('data-wa')); }
     });

@@ -15,3 +15,6 @@ WhatsApp number: `WA_NUMBER` at the top of js/market.js.
 Everything in the shop is plain HTML in `index.html` (Shop tab, `#serviceList`). Each row's `data-price`, `data-was` (old price for a sale),
 `data-variations`, `data-image`, `data-kind="service"` and `data-from="1"` ("From ₦...") control the card and the product modal.
 Sample sellers, prices, reviews, delivery fees and policies are PLACEHOLDERS: replace them with your real details before launch.
+
+## Theme
+Dark green glass theme (default) with a soft sage light mode (toggle in the header). All colours are CSS variables at the end of `css/styles.css` ("THEME: GLASS LEAF").

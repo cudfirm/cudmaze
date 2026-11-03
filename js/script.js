@@ -12,8 +12,7 @@ let activeTabIdBeforeSearch = null;
 
 const ALL_TAB_IDS = [
     'blog-content', 'explore-content', 'tab1', 'forum-content', 'connect-content',
-    'tab2','tab3','tab4','tab5','tab6','tab7','tab8','tab9','tab10',
-    'tab11','tab12','tab13','tab14','tab15','tab16','tab17','tab18','tab19','tab20'
+    'tab2','tab3','tab4','tab5','tab6','tab7','tab8','tab9','tab10','tab11','tab12'
 ];
 let currentTabIndex = 2;
 
@@ -21,23 +20,15 @@ const TAB_NAMES = {
     "tab1": "Home",
     "tab2": "Categories",
     "tab3": "Shop",
-    "tab4": "Sellers",
-    "tab5": "Market Days",
-    "tab6": "How It Works",
-    "tab7": "Delivery",
-    "tab8": "Sell With Us",
-    "tab9": "Top Sellers",
-    "tab10": "Reviews",
-    "tab11": "Lagos Markets",
-    "tab12": "Hot",
-    "tab13": "New Arrivals",
-    "tab14": "Deals",
-    "tab15": "Updates",
-    "tab16": "Request an Item",
-    "tab17": "Payments",
-    "tab18": "Returns",
-    "tab19": "FAQs",
-    "tab20": "About Us",
+    "tab4": "Deals",
+    "tab5": "Sellers",
+    "tab6": "Lagos Markets",
+    "tab7": "Market Days",
+    "tab8": "How It Works",
+    "tab9": "Delivery & Help",
+    "tab10": "Request an Item",
+    "tab11": "Sell With Us",
+    "tab12": "About & Reviews",
     "blog-content": "Today",
     "explore-content": "Stores",
     "forum-content": "Offers",
@@ -120,11 +111,11 @@ function animateView(viewElement) {
     if (typeof gsap === 'undefined') return;
     gsap.fromTo(viewElement,
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', clearProps: 'opacity,transform' }
     );
     const items = viewElement.querySelectorAll('.card, .list-item');
     if (items.length) {
-        gsap.from(items, { opacity: 0, y: 20, duration: 0.4, stagger: 0.08, ease: 'power3.out', delay: 0.1 });
+        gsap.from(items, { opacity: 0, duration: 0.35, stagger: { amount: 0.3 }, ease: 'power2.out', delay: 0.05, clearProps: 'opacity,transform' });
     }
 }
 
@@ -494,7 +485,7 @@ function initDarkMode() {
     const icon = document.getElementById('darkModeIcon');
     const html = document.documentElement;
     try {
-        if (localStorage.getItem('cudfirm_theme') === 'dark') {
+        if (localStorage.getItem('cudfirm_theme') !== 'light') {
             html.setAttribute('data-theme', 'dark');
             if (icon) icon.className = 'bi bi-sun-fill';
         }
@@ -1013,7 +1004,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initBackToTop();
     initLiveUserCount();
     initKeyboardShortcuts();
-    initSwipeNavigation();
+    /* swipe-to-switch-tabs removed */
     initSidebarTabFilter();
     initServiceFinder();
 
@@ -1021,7 +1012,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
         if (!localStorage.getItem('cudfirm_hint_shown')) {
             setTimeout(function() {
-                showToast('Tip: Press ? for keyboard shortcuts ⌨️', 4000);
+                if (!window.matchMedia('(pointer: coarse)').matches) showToast('Tip: Press ? for keyboard shortcuts ⌨️', 4000);
                 localStorage.setItem('cudfirm_hint_shown', '1');
             }, 3000);
         }

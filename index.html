@@ -55,22 +55,42 @@
 
 <!-- Sidebar Tab Filter Search -->
 <div class="sidebar-tab-filter">
-  <input type="text" id="sidebarTabSearch" placeholder="Filter pages..." autocomplete="off" />
+  <input type="text" id="sidebarTabSearch" placeholder="Filter pages..." autocomplete="off" aria-label="Filter pages" />
 </div>
 
-<div class="sidebar-tabs">
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab1')" data-tab-name="home">Home</button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab2')" data-tab-name="categories">Categories</button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab3')" data-tab-name="shop">Shop</button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab4')" data-tab-name="deals">Deals <span class="tab-badge badge-hot">🔥</span></button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab5')" data-tab-name="sellers">Sellers</button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab6')" data-tab-name="lagos markets">Lagos Markets</button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab7')" data-tab-name="market days">Market Days</button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab8')" data-tab-name="how it works">How It Works</button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab9')" data-tab-name="delivery and help">Delivery &amp; Help</button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab10')" data-tab-name="request an item">Request an Item</button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab11')" data-tab-name="sell with us">Sell With Us</button>
-      <button class="tab-button whitenho" onclick="openTab(event, 'tab12')" data-tab-name="about us">About &amp; Reviews</button>
+<div class="sidebar-tabs" role="navigation" aria-label="Site sections">
+      <div class="nav-group is-open" data-group="shop">
+        <button type="button" class="nav-group-toggle" aria-expanded="true" aria-controls="navgrp-shop"><span class="nav-group-label">Shop</span><i class="bi bi-chevron-down nav-group-chevron" aria-hidden="true"></i></button>
+        <div class="nav-group-items" id="navgrp-shop"><div class="nav-group-inner">
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab2')" data-tab-name="categories"><i class="bi bi-grid-1x2" aria-hidden="true"></i><span class="tab-label">Categories</span></button>
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab3')" data-tab-name="shop"><i class="bi bi-bag" aria-hidden="true"></i><span class="tab-label">Shop</span></button>
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab4')" data-tab-name="deals"><i class="bi bi-percent" aria-hidden="true"></i><span class="tab-label">Deals</span> <span class="tab-badge badge-hot">🔥</span></button>
+        </div></div>
+      </div>
+      <div class="nav-group" data-group="explore">
+        <button type="button" class="nav-group-toggle" aria-expanded="false" aria-controls="navgrp-explore"><span class="nav-group-label">Explore</span><i class="bi bi-chevron-down nav-group-chevron" aria-hidden="true"></i></button>
+        <div class="nav-group-items" id="navgrp-explore"><div class="nav-group-inner">
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab5')" data-tab-name="sellers"><i class="bi bi-patch-check" aria-hidden="true"></i><span class="tab-label">Sellers</span></button>
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab6')" data-tab-name="lagos markets"><i class="bi bi-geo-alt" aria-hidden="true"></i><span class="tab-label">Lagos Markets</span></button>
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab7')" data-tab-name="market days"><i class="bi bi-calendar-event" aria-hidden="true"></i><span class="tab-label">Market Days</span></button>
+        </div></div>
+      </div>
+      <div class="nav-group" data-group="help">
+        <button type="button" class="nav-group-toggle" aria-expanded="false" aria-controls="navgrp-help"><span class="nav-group-label">Help</span><i class="bi bi-chevron-down nav-group-chevron" aria-hidden="true"></i></button>
+        <div class="nav-group-items" id="navgrp-help"><div class="nav-group-inner">
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab8')" data-tab-name="how it works"><i class="bi bi-signpost-split" aria-hidden="true"></i><span class="tab-label">How It Works</span></button>
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab9')" data-tab-name="delivery and help"><i class="bi bi-truck" aria-hidden="true"></i><span class="tab-label">Delivery &amp; Help</span></button>
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab10')" data-tab-name="request an item"><i class="bi bi-search-heart" aria-hidden="true"></i><span class="tab-label">Request an Item</span></button>
+        </div></div>
+      </div>
+      <div class="nav-group" data-group="company">
+        <button type="button" class="nav-group-toggle" aria-expanded="false" aria-controls="navgrp-company"><span class="nav-group-label">Sell &amp; About</span><i class="bi bi-chevron-down nav-group-chevron" aria-hidden="true"></i></button>
+        <div class="nav-group-items" id="navgrp-company"><div class="nav-group-inner">
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab11')" data-tab-name="sell with us"><i class="bi bi-shop-window" aria-hidden="true"></i><span class="tab-label">Sell With Us</span></button>
+          <button class="tab-button whitenho" onclick="openTab(event, 'tab12')" data-tab-name="about us"><i class="bi bi-star" aria-hidden="true"></i><span class="tab-label">About &amp; Reviews</span></button>
+        </div></div>
+      </div>
+      <p class="nav-empty" hidden>No matching pages</p>
 </div>
 <div class="sidebar-footer custom-sidebar-gradient">© 2025</div>
 
@@ -1598,7 +1618,7 @@
 
   <section id="tab9" class="tab-content view">
     <div class="p-2">
-      <h4>Delivery &amp;amp; Help</h4>
+      <h4>Delivery &amp; Help</h4>
       <p class="card card-body alert alert-secondary">
         Getting your order, returning it if needed, and quick answers to common questions.
       </p>
@@ -1704,7 +1724,7 @@
 
   <section id="tab12" class="tab-content view">
     <div class="p-2">
-      <h4>About &amp;amp; Reviews</h4>
+      <h4>About &amp; Reviews</h4>
       <p class="card card-body alert alert-secondary">
         The marketplace for everything Lagos needs, and what shoppers say about it.
       </p>

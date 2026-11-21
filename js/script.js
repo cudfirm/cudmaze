@@ -77,6 +77,7 @@ function openTab(event, tabId) {
     if (isSidebarTab) {
         const sidebarButton = document.querySelector(`.tab-button[onclick*="'${tabId}'"]`);
         if (sidebarButton) sidebarButton.classList.add('active');
+        revealActiveNavGroup();
         if (tabId === 'tab1') {
             const homeFooterButton = document.querySelector('.nav-item[onclick*="tab1"]');
             if (homeFooterButton) homeFooterButton.classList.add('active');
@@ -679,15 +680,54 @@ function initSwipeNavigation() {
 // =============================================
 // 17. SIDEBAR TAB FILTER
 // =============================================
+function setNavGroupOpen(group, open) {
+    group.classList.toggle('is-open', open);
+    var toggle = group.querySelector('.nav-group-toggle');
+    if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    var items = group.querySelector('.nav-group-items');
+    if (items) { if (open) items.removeAttribute('inert'); else items.setAttribute('inert', ''); }
+}
+
+function revealActiveNavGroup() {
+    var active = document.querySelector('.sidebar-tabs .tab-button.active');
+    var group = active && active.closest('.nav-group');
+    if (!group) return;
+    document.querySelectorAll('.sidebar-tabs .nav-group').forEach(function(g) { setNavGroupOpen(g, g === group); });
+}
+
+function initSidebarNavGroups() {
+    document.querySelectorAll('.sidebar-tabs .nav-group').forEach(function(group) {
+        setNavGroupOpen(group, group.classList.contains('is-open'));
+        var toggle = group.querySelector('.nav-group-toggle');
+        if (toggle) toggle.addEventListener('click', function() {
+            setNavGroupOpen(group, !group.classList.contains('is-open'));
+        });
+    });
+    revealActiveNavGroup();
+}
+
 function initSidebarTabFilter() {
     var filterInput = document.getElementById('sidebarTabSearch');
     if (!filterInput) return;
     filterInput.addEventListener('input', function() {
         var term = this.value.toLowerCase().trim();
+        var nav = document.querySelector('.sidebar-tabs');
+        if (nav) nav.classList.toggle('is-filtering', !!term);
         document.querySelectorAll('.sidebar-tabs .tab-button').forEach(function(btn) {
             var name = (btn.getAttribute('data-tab-name') || btn.textContent).toLowerCase();
             btn.style.display = (!term || name.includes(term)) ? '' : 'none';
         });
+        var anyGroup = false;
+        document.querySelectorAll('.sidebar-tabs .nav-group').forEach(function(group) {
+            var hasMatch = Array.prototype.some.call(group.querySelectorAll('.tab-button'), function(b) { return b.style.display !== 'none'; });
+            group.style.display = hasMatch ? '' : 'none';
+            if (hasMatch) anyGroup = true;
+            // while filtering, every matching group is shown open; afterwards restore what the user had
+            if (term) { var items = group.querySelector('.nav-group-items'); if (items) items.removeAttribute('inert'); }
+            else setNavGroupOpen(group, group.classList.contains('is-open'));
+        });
+        var empty = document.querySelector('.sidebar-tabs .nav-empty');
+        if (empty) empty.hidden = !term || anyGroup;
     });
 }
 
@@ -1006,6 +1046,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initKeyboardShortcuts();
     /* swipe-to-switch-tabs removed */
     initSidebarTabFilter();
+    initSidebarNavGroups();
     initServiceFinder();
 
     // STEP 9: First-visit hint toast

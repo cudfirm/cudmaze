@@ -2422,3 +2422,52 @@ h2[class*="custom-text"], .custom-text-primary, .custom-text-dark { color: var(-
   :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > .sub-h { margin: .6rem .25rem 0; }
   :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > p.alert, :is(#tab6, #tab7, #tab8, #tab9, #tab11, #tab12) .p-2 > h4 { margin-bottom: 0 !important; }
 }
+
+/* ===================================================================
+   SIDEBAR: grouped, collapsible navigation (labels + icons)
+   Additive only: the glass-leaf theme, tab buttons and active states above are unchanged.
+   =================================================================== */
+.sidebar-left { container-type: inline-size; container-name: side; }
+
+.nav-group { margin: 0 0 2px; }
+.nav-group + .nav-group { border-top: 1px solid var(--g-border); margin-top: 4px; padding-top: 2px; }
+
+.nav-group-toggle {
+  display: flex; align-items: center; justify-content: space-between; gap: 4px;
+  width: calc(100% - 8px); margin: 4px 4px 2px; padding: 7px 8px;
+  background: transparent; border: 0; border-radius: 10px;
+  color: var(--g-text-2); font: inherit; font-size: 11px; font-weight: 700; letter-spacing: .02em; line-height: 1.2; text-align: left; cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.nav-group-toggle:hover { background: var(--g-surface); color: var(--g-heading); }
+.nav-group-toggle:focus-visible,
+.sidebar-tabs .tab-button:focus-visible { outline: 2px solid var(--g-accent); outline-offset: 2px; }
+.nav-group-chevron { flex: none; font-size: 10px; transition: transform .2s ease; }
+.nav-group:not(.is-open) .nav-group-chevron { transform: rotate(-90deg); }
+
+/* fold / unfold: animates only in answer to a tap */
+.nav-group-items { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .22s ease; }
+.nav-group:not(.is-open) .nav-group-items { grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows .22s ease, visibility 0s .22s; }
+.nav-group-inner { min-height: 0; overflow: hidden; padding: 2px 0 6px; }
+.sidebar-tabs.is-filtering .nav-group .nav-group-items { grid-template-rows: 1fr; visibility: visible; }
+
+/* items: icon above label in the narrow rail */
+.sidebar-tabs .nav-group .tab-button {
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  padding: .6rem 2px; font-size: clamp(9px, 2.6vw, 10.5px); line-height: 1.2; text-align: center; overflow-wrap: break-word;
+}
+.sidebar-tabs .tab-button .bi { flex: none; font-size: 1.3rem; line-height: 1; color: var(--g-accent); transition: color .2s; }
+.sidebar-tabs .tab-button.active .bi { color: inherit; }
+.sidebar-tabs .tab-button .tab-badge { position: absolute; top: 2px; right: 2px; margin: 0; padding: 0 3px; font-size: 8px; }
+.nav-empty { margin: 10px 8px; font-size: 11px; color: var(--g-text-2); text-align: center; }
+
+/* roomier sidebar: icon and label sit side by side */
+@container side (min-width: 150px) {
+  .nav-group-toggle { font-size: 12px; padding: 8px 12px; }
+  .sidebar-tabs .nav-group .tab-button { flex-direction: row; justify-content: flex-start; gap: .7rem; padding: .62rem .85rem; font-size: 13px; text-align: left; }
+  .sidebar-tabs .tab-button .tab-badge { position: static; margin-left: auto; font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-group-items, .nav-group:not(.is-open) .nav-group-items, .nav-group-chevron, .nav-group-toggle { transition: none; }
+}

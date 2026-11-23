@@ -1,6 +1,6 @@
 /* CUDMAZE API: accounts, sessions, profile, saved cart.
-   Runs on Cloudflare Workers with a D1 database bound as DB.
-   Static files are served by the assets binding; only /api/* reaches this code. */
+   Cloudflare Pages Function (catch-all for /api/*) with a D1 database bound as DB.
+   Static files are served by Pages itself; only /api/* reaches this code. */
 
 const SESSION_DAYS = 30;
 const COOKIE = 'cm_session';
@@ -183,11 +183,11 @@ async function handle(request, env) {
   return fail(404, 'Not found.');
 }
 
-export default {
-  async fetch(request, env) {
-    const url = new URL(request.url);
-    if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
-    try { return await handle(request, env); }
-    catch (e) { console.error(e); return fail(500, 'Something went wrong. Please try again.'); }
-  },
-};
+const NO_DB = 'Accounts are not available right now. You can still buy over WhatsApp.';
+
+export async function onRequest(context) {
+  const { request, env } = context;
+  if (!env.DB) return fail(503, NO_DB); // D1 not bound yet: site keeps working as guest/WhatsApp shop
+  try { return await handle(request, env); }
+  catch (e) { console.error(e); return fail(500, 'Something went wrong. Please try again.'); }
+}
